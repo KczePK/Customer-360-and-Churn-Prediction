@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "d89e8f14bf62e1551a34",
+  "position": {
+    "x": 831.2807881773399,
+    "y": 107.73399014778325,
+    "z": 7000,
+    "height": 121.03448275862068,
+    "width": 256.69950738916253,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_research_measure"
+                    }
+                  },
+                  "Property": "Commercial Contract Revenue"
+                }
+              },
+              "queryRef": "_research_measure.Commercial Contract Revenue",
+              "nativeQueryRef": "Research Revenue (commercial)",
+              "displayName": "Research Revenue (commercial)",
+              "format": "\"฿\"#,0"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_research_measure.Commercial Contract Revenue"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

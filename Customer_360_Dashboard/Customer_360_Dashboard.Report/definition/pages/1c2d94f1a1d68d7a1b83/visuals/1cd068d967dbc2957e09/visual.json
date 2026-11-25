@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1cd068d967dbc2957e09",
+  "position": {
+    "x": 654.384236453202,
+    "y": 107.73399014778325,
+    "z": 6000,
+    "height": 121.03448275862068,
+    "width": 160.935960591133,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure"
+                    }
+                  },
+                  "Property": "Service Revenue"
+                }
+              },
+              "queryRef": "_measure.Service Revenue",
+              "nativeQueryRef": "Service Revenue",
+              "displayName": "Service Revenue",
+              "format": "\"฿\"#,0"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure.Service Revenue"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "968e75830bb2860c1241",
+  "position": {
+    "x": 718.71123767248025,
+    "y": 259.40283506773596,
+    "z": 14000,
+    "height": 62.662116040955631,
+    "width": 170.47781569965869,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_exec"
+                    }
+                  },
+                  "Property": "Research Contract Value (card)"
+                }
+              },
+              "queryRef": "_measure_exec.Research Contract Value (card)",
+              "nativeQueryRef": "Contract Value (ex VAT)",
+              "displayName": "Contract Value (ex VAT)",
+              "format": "\"฿\"#,0;-\"฿\"#,0;\"฿\"#,0"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_exec"
+                  }
+                },
+                "Property": "Research Contract Value (card)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

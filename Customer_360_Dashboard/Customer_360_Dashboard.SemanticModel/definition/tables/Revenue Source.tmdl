@@ -1,0 +1,35 @@
+table 'Revenue Source'
+	lineageTag: e54db804-f9bf-4e05-9370-920aa01a8dc1
+
+	column source
+		lineageTag: d01fefed-355c-4299-b24a-a10aad2cad63
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [source]
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_sort
+		formatString: 0
+		lineageTag: bc1f85d9-91c8-4390-b7af-56a87c7cec50
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [source_sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Revenue Source' = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "source", STRING, "source_sort", INTEGER,
+				    {
+				        { "บริการ", 1 },
+				        { "สัญญาวิจัยเชิงพาณิชย์ - ลูกค้า", 2 },
+				        { "สัญญาวิจัยเชิงพาณิชย์ - PMU", 3 }
+				    }
+				)
+
+	annotation PBI_Id = 6b07f508009e437aaeaceaec61530261
+

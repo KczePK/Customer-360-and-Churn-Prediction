@@ -1,0 +1,73 @@
+relationship 70d8836b-53dc-4b56-fae9-7d79fb1fdb70
+	fromColumn: 'gold fact_customer_rfm_monthly'.snapshot_date_key
+	toColumn: 'gold dim_date'.date_key
+
+relationship c0d6902d-d68a-333a-a4f5-d90e9477840a
+	fromColumn: 'gold fact_revenue_line'.month_key
+	toColumn: 'gold dim_date'.date_key
+
+relationship f1f101fa-f848-b109-465a-96a90ad1f193
+	fromColumn: 'gold fact_customer_rfm_monthly'.enterprise_id
+	toColumn: 'silver dim_customer'.customer_id
+
+relationship ea68e474-eda2-1a1f-25d3-4735a4ff2d68
+	fromColumn: 'gold fact_revenue_line'.enterprise_id
+	toColumn: 'silver dim_customer'.customer_id
+
+relationship AutoDetected_0be1c762-42b0-4bb6-bf7b-feeb93f863aa
+	fromColumn: 'gold fact_customer_rfm_monthly'.segment
+	toColumn: 'gold dim_segment'.segment
+
+relationship AutoDetected_c8c295fe-4427-4a8e-8f22-5a7ac83ffb13
+	fromColumn: 'gold fact_revenue_line'.profit_center
+	toColumn: 'gold dim_profit_center'.profit_center
+
+relationship AutoDetected_d512de92-df86-4548-b476-2e0d98fc6117
+	fromColumn: 'gold dim_research_contract'.profit_center
+	toColumn: 'gold dim_profit_center'.profit_center
+
+relationship AutoDetected_90fdbf18-c504-4c0b-bd33-cfc0c748930a
+	fromColumn: 'gold fact_contract_revenue'.profit_center
+	toColumn: 'gold dim_profit_center'.profit_center
+
+relationship AutoDetected_e3f86329-acfe-499c-9a70-f26db1b39ef8
+	isActive: false
+	fromColumn: 'gold fact_contract_revenue'.contract_key
+	toColumn: 'gold dim_research_contract'.contract_key
+
+relationship 59c85591-4905-8a01-c209-a415e912aaa1
+	fromColumn: 'gold fact_contract_revenue'.month_key
+	toColumn: 'gold dim_date'.date_key
+
+relationship 6d85e803-26a5-bfe2-8838-ba170a6bd6e6
+	fromColumn: 'gold fact_contract_revenue'.enterprise_id
+	toColumn: 'silver dim_customer'.customer_id
+
+relationship 5da84914-d6f7-8690-e115-736daf80cfdc
+	fromColumn: 'gold dim_research_contract'.sign_month_key
+	toColumn: 'gold dim_date'.date_key
+
+relationship d3c39f09-f730-e5ca-f2f9-8d8ed58fcc9e
+	fromColumn: 'gold dim_research_contract'.enterprise_id
+	toColumn: 'silver dim_customer'.customer_id
+
+relationship 4b4b63d8-9920-e045-6695-96c9b0484d24
+	fromColumn: 'gold fact_research_customer_monthly'.snapshot_date_key
+	toColumn: 'gold dim_date'.date_key
+
+relationship 71f913a8-7b65-8925-694d-a1fcfd07e9f9
+	fromColumn: 'gold fact_research_customer_monthly'.enterprise_id
+	toColumn: 'silver dim_customer'.customer_id
+
+relationship 5ad4d458-5751-7f07-4b74-2711176935d8
+	fromColumn: 'gold fact_research_customer_monthly'.segment
+	toColumn: 'gold dim_research_segment'.segment
+
+relationship ac7bc4fc-2263-4a73-8c6d-0e971b481338
+	fromColumn: 'gold fact_revenue_line'.gl_account
+	toColumn: 'Service Type'.gl_account
+
+relationship aad98c36-e3a1-4bc5-9bb8-27d83b37c03c
+	fromColumn: 'gold churn_score'.enterprise_id
+	toColumn: 'silver dim_customer'.customer_id
+

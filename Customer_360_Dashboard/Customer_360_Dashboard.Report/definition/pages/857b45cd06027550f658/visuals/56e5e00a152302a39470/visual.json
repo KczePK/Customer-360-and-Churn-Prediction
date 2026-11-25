@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "56e5e00a152302a39470",
+  "position": {
+    "x": 140.92966770661022,
+    "y": 259.40283506773596,
+    "z": 12000,
+    "height": 62.662116040955631,
+    "width": 408.22525597269623,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_exec"
+                    }
+                  },
+                  "Property": "Research Segment (card)"
+                }
+              },
+              "queryRef": "_measure_exec.Research Segment (card)",
+              "nativeQueryRef": "Research Segment",
+              "displayName": "Research Segment"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_exec"
+                  }
+                },
+                "Property": "Research Segment (card)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

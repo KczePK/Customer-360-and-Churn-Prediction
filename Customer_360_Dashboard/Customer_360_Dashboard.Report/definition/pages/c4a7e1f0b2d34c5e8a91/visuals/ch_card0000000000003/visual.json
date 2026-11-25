@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "ch_card0000000000003",
+  "position": {
+    "x": 1152,
+    "y": 104,
+    "z": 4000,
+    "height": 104,
+    "width": 364,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_churn"
+                    }
+                  },
+                  "Property": "Expected Churners"
+                }
+              },
+              "queryRef": "_measure_churn.Expected Churners",
+              "nativeQueryRef": "Expected Churners (12m)",
+              "displayName": "Expected Churners (12m)",
+              "format": "#,0"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

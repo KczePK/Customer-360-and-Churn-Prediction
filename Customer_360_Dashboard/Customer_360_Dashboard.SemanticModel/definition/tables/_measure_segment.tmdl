@@ -1,0 +1,266 @@
+table _measure_segment
+	lineageTag: 144d14f2-1e38-49d2-97f2-025675661aa9
+
+	measure 'Service Customers (As-of today)' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        COUNTROWS ( 'gold fact_customer_rfm_monthly' ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+			--As-of Customer on the latest snapshot
+			--this month (1 month only)
+		formatString: 0
+		lineageTag: ddd33454-9927-4242-a362-cee3a21ee458
+
+	measure '% of Customers' =
+			
+			VAR ThisSegment =
+			    CALCULATE (
+			        [Service Customers (As-of today)],
+			        KEEPFILTERS ( LEFT ( 'gold fact_customer_rfm_monthly'[segment], 2 ) <> "11" )
+			    )
+			VAR AllExclLost =
+			    CALCULATE (
+			        [Service Customers (As-of today)],
+			        REMOVEFILTERS ( 'gold dim_segment' ),
+			        REMOVEFILTERS ( 'gold fact_customer_rfm_monthly'[segment] ),
+			        LEFT ( 'gold fact_customer_rfm_monthly'[segment], 2 ) <> "11"
+			    )
+			RETURN
+			    DIVIDE ( ThisSegment, AllExclLost )
+		lineageTag: 598ebf5b-1c58-45ba-bc2f-4debb50098e5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Segment (as of)' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        SELECTEDVALUE ( 'gold fact_customer_rfm_monthly'[segment] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+		lineageTag: 418be905-9481-4b5e-ba4c-28ea55e277b8
+
+	measure 'RFM Code' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        SELECTEDVALUE ( 'gold fact_customer_rfm_monthly'[rfm_code] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+		lineageTag: 6af2ee0a-cf5b-46b7-a6ef-be2c8b5616ab
+
+	measure 'R Score' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_customer_rfm_monthly'[r_score] ),
+			            'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			        )
+			    )
+		formatString: 0
+		lineageTag: 1f0ad949-887a-4cd7-9595-019614fe20ce
+
+	measure 'F Score' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_customer_rfm_monthly'[f_score] ),
+			            'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			        )
+			    )
+		formatString: 0
+		lineageTag: ee3020ad-315f-4ace-a5ec-3306a07cd973
+
+	measure 'M Score' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_customer_rfm_monthly'[m_score] ),
+			            'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			        )
+			    )
+		formatString: 0
+		lineageTag: 14d1dcf7-e552-4b57-843f-461772f0df44
+
+	measure 'Invoices (12m)' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        SUM ( 'gold fact_customer_rfm_monthly'[freq_12m] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+		lineageTag: 49e5a099-b860-49c8-a82b-e877925a506f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lifetime Revenue' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        SUM ( 'gold fact_customer_rfm_monthly'[mon_ltd] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+		lineageTag: 922e0683-f202-4314-9834-f12f028aeedc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Months Since Last Invoice' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        AVERAGE ( 'gold fact_customer_rfm_monthly'[recency_months] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+		lineageTag: a967e71f-3ba9-4394-bc6d-8c70dbc07534
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Usual Gap (months)' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_customer_rfm_monthly'[avg_gap_months] ),
+			            'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			        )
+			    )
+		formatString: 0.0
+		lineageTag: 024f51a3-231e-414b-8ed9-d752bfab63c7
+
+	measure 'Tenure (months)' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_customer_rfm_monthly'[tenure_months] ),
+			            'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			        )
+			    )
+		formatString: 0
+		lineageTag: 37d35f69-14a9-417f-8943-5b29d9eeebfb
+
+	measure 'Overdue Ratio' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_customer_rfm_monthly'[overdue_ratio] ),
+			            'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			        )
+			    )
+		formatString: 0.0
+		lineageTag: 518bc6d2-1616-422f-9170-a280e4acf761
+
+	measure '% of Revenue' =
+			
+			-- share of 12-month revenue (as-of month) by segment; pairs with % of Customers
+			VAR ThisSegment = [12m Revenue]
+			VAR AllSegments =
+			    CALCULATE (
+			        [12m Revenue],
+			        REMOVEFILTERS ( 'gold dim_segment' ),
+			        REMOVEFILTERS ( 'gold fact_customer_rfm_monthly'[segment] )
+			    )
+			RETURN
+			    DIVIDE ( ThisSegment, AllSegments )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9d679167-83f8-49a3-a61f-0dd87c123e30
+
+	measure 'Service Revenue by Segment' =
+			
+			-- Service revenue (fact_revenue_line) that follows the segment selection.
+			-- dim_segment only filters fact_customer_rfm_monthly, so pass the customers
+			-- in the selected segment(s) at the as-of month to fact_revenue_line.
+			VAR k = [As-of Month Key]
+			VAR SegmentSelected =
+			    ISFILTERED ( 'gold dim_segment' )
+			        || ISFILTERED ( 'gold fact_customer_rfm_monthly'[segment] )
+			VAR SegCustomers =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_customer_rfm_monthly'[enterprise_id] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+			RETURN
+			    IF (
+			        SegmentSelected,
+			        CALCULATE (
+			            [Service Revenue],
+			            KEEPFILTERS ( TREATAS ( SegCustomers, 'gold fact_revenue_line'[enterprise_id] ) )
+			        ),
+			        [Service Revenue]
+			    )
+		formatString: #,0
+		lineageTag: 6de48811-217e-4239-ae5d-3e05a2a5e515
+
+	measure 'Research Usual Gap (months)' =
+			
+			-- average months between signing months (research, as-of month); blank with only one signing month
+			VAR rk = [Research As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_research_customer_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_research_customer_monthly'[avg_gap_months] ),
+			            REMOVEFILTERS ( 'gold dim_date' ),
+			            'gold fact_research_customer_monthly'[snapshot_date_key] = rk
+			        )
+			    )
+		formatString: 0.0
+		lineageTag: 890b57d9-2aa3-48b6-813f-af07dc1d0a10
+
+	measure 'Research Overdue Ratio' =
+			
+			-- months since last signing / usual gap (research, as-of month); above 1 = later than usual
+			VAR rk = [Research As-of Month Key]
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'gold fact_research_customer_monthly'[enterprise_id] ),
+			        CALCULATE (
+			            MAX ( 'gold fact_research_customer_monthly'[overdue_ratio] ),
+			            REMOVEFILTERS ( 'gold dim_date' ),
+			            'gold fact_research_customer_monthly'[snapshot_date_key] = rk
+			        )
+			    )
+		formatString: 0.0
+		lineageTag: 8b9b6804-052b-4a70-8a78-1cefe2f5ac59
+
+	column Column
+		formatString: 0
+		lineageTag: 64553047-c5c8-4f63-a542-86bab570c17f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure_segment = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 2434c53308a94189ac3447afeaab3372
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

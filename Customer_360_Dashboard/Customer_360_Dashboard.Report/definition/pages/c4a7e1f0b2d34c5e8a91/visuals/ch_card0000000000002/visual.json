@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "ch_card0000000000002",
+  "position": {
+    "x": 776,
+    "y": 104,
+    "z": 3000,
+    "height": 104,
+    "width": 364,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_churn"
+                    }
+                  },
+                  "Property": "High Risk %"
+                }
+              },
+              "queryRef": "_measure_churn.High Risk %",
+              "nativeQueryRef": "High Risk %",
+              "displayName": "High Risk %",
+              "format": "0.0%"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,393 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b1762172a861442e0283",
+  "position": {
+    "x": 0,
+    "y": 212.807881773399,
+    "z": 3000,
+    "height": 349.80295566502463,
+    "width": 990.88669950738915,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_segment"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "gold dim_research_segment.segment",
+              "nativeQueryRef": "Research Segment",
+              "displayName": "Research Segment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_research_measure"
+                    }
+                  },
+                  "Property": "Research Customers (As-of)"
+                }
+              },
+              "queryRef": "_research_measure.Research Customers (As-of)",
+              "nativeQueryRef": "Customers",
+              "displayName": "Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "% Research Customers"
+                }
+              },
+              "queryRef": "_measure_v2.% Research Customers",
+              "nativeQueryRef": "% Customers",
+              "displayName": "% Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "Research Contract Value 5y"
+                }
+              },
+              "queryRef": "_measure_v2.Research Contract Value 5y",
+              "nativeQueryRef": "Contract Value 5y",
+              "displayName": "Contract Value 5y"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "% Research Value"
+                }
+              },
+              "queryRef": "_measure_v2.% Research Value",
+              "nativeQueryRef": "% Value",
+              "displayName": "% Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "Value per Research Customer"
+                }
+              },
+              "queryRef": "_measure_v2.Value per Research Customer",
+              "nativeQueryRef": "Value / Customer",
+              "displayName": "Value / Customer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "Research Contracts 5y"
+                }
+              },
+              "queryRef": "_measure_v2.Research Contracts 5y",
+              "nativeQueryRef": "Contracts 5y",
+              "displayName": "Contracts 5y"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "Customers with Running Contract"
+                }
+              },
+              "queryRef": "_measure_v2.Customers with Running Contract",
+              "nativeQueryRef": "Running",
+              "displayName": "Running"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "Avg Months Since Last Contract"
+                }
+              },
+              "queryRef": "_measure_v2.Avg Months Since Last Contract",
+              "nativeQueryRef": "Avg Months Since Last",
+              "displayName": "Avg Months Since Last"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold dim_research_segment"
+                  }
+                },
+                "Property": "segment"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'maxColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_v2.Research Contract Value 5y"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Research Segment Scorecard'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ลูกค้าสัญญาวิจัย (client) ณ เดือนล่าสุด | มูลค่าสัญญา 5 ปีล่าสุด (รวม VAT) | % Customers ไม่รวม R08 Lost'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,37 @@
+table 'gold dim_research_segment'
+	lineageTag: 293ff0e8-d51c-419b-8a54-6f520762d9b9
+
+	column segment
+		dataType: string
+		lineageTag: 59e3b912-60e9-4240-85cc-10b9da62c1dd
+		summarizeBy: none
+		sourceColumn: segment
+		sortByColumn: segment_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: e6252a23-3aa4-41b8-b730-3e8bb12bf84a
+		summarizeBy: none
+		sourceColumn: segment_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold dim_research_segment' = m
+		mode: import
+		source =
+				let
+				  // Sampled + perturbed: fake customers, ids, documents, fund codes, org; amounts x random factor
+				  Data = Text.Combine({
+				    "Zcw9C4MwFIXhv3LJHKF+6+zSUtHi0EUyhHLRgFwlSZH++yKXxqHr+xzOOIrhEkOHOzSLQfJCxkoeMYE7fuChrSe0QiZcUxhwQ+3DOuWeQU8YNSt5q1+nZqw53Ogfc8YCWr05QxNczTRHT728MWwK3pRh84OSoYJ2dedlddTez2idkHWt1Bc="
+				  }),
+				  Rows = Json.Document(Binary.Decompress(Binary.FromText(Data, BinaryEncoding.Base64), Compression.Deflate)),
+				  Source = Table.FromRows(Rows, {"segment", "segment_sort"}),
+				  Typed = Table.TransformColumnTypes(Source, {{"segment", type text}, {"segment_sort", Int64.Type}}, "en-US")
+				in
+				  Typed
+

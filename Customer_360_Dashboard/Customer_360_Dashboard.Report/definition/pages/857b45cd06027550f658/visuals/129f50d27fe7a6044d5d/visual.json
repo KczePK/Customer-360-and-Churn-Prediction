@@ -1,0 +1,91 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "129f50d27fe7a6044d5d",
+  "position": {
+    "x": 569.42796122196842,
+    "y": 121.17757909503965,
+    "z": 24000,
+    "height": 65.426621160409553,
+    "width": 154.81228668941978,
+    "tabOrder": 24000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Overdue Ratio"
+                }
+              },
+              "queryRef": "_measure_segment.Overdue Ratio",
+              "nativeQueryRef": "Overdue Ratio (เท่า)",
+              "displayName": "Overdue Ratio (เท่า)",
+              "format": "0.00\"x\""
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_segment"
+                  }
+                },
+                "Property": "Overdue Ratio"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

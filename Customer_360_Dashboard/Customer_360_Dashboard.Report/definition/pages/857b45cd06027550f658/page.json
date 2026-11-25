@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "857b45cd06027550f658",
+  "displayName": "Customer 360",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "300bbc44801f8fb3195c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "silver dim_customer"
+              }
+            },
+            "Property": "customer_id"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "silver dim_customer",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "s"
+                          }
+                        },
+                        "Property": "customer_id"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'C8316197'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "54b5d777f7525facf030",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "60adacc38429bbd5d9ae",
+        "boundFilter": "300bbc44801f8fb3195c",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "silver dim_customer"
+              }
+            },
+            "Property": "customer_id"
+          }
+        }
+      }
+    ],
+    "acceptsFilterContext": "None"
+  }
+}

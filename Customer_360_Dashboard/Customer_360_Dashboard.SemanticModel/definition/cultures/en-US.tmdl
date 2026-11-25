@@ -1,0 +1,2594 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "table_measure.realized_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure",
+			          "ConceptualProperty": "Realized Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Realized revenue (FY)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure.realized_revenue_yoy_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure",
+			          "ConceptualProperty": "Realized Revenue YoY %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue YoY (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure.service_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure",
+			          "ConceptualProperty": "Service Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Service Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Service": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure.column12m_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure",
+			          "ConceptualProperty": "12m Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue 12m": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Revenue 12 months": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_date.fiscal_year_be": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_date",
+			          "ConceptualProperty": "fiscal_year_be"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fiscal Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.active_customers_services": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Active Customers (services)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Active Service Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Active Customers (services)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_active_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Active Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Active research customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Active Research Clients (ไม่รวม PMU)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Research: Active this FY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_services_active": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Services Active"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Active this FY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_services_retention_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Services Retention %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retention": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_services_retained": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Services Retained"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retained Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_services_new": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Services New"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "New Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_services_returning": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Services Returning"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Returning Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_services_churned_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Services Churned (-)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Churned Customers (-)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.returning_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Returning Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Services: Returning": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.churned_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Churned Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Services: Churned": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.active_customers_this_fy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Active Customers This FY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Services: Active this FY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_retained_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Retained Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retained Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_new_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research New Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "New Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Research: New": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_returning_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Returning Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Returning Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Research: Returning": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_churned_customers_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Churned Customers (-)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Churned Customers (-)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_retention_rate_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Retention Rate %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research: Retention": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_customer_bridge_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Customer Bridge Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.research_churned_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Research Churned Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research: Churned": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.retention_rate_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Retention Rate %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Services: Retention": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.new_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "New Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Services: New": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_research_active": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Research Active"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Active this FY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_research_retention_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Research Retention %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retention": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_research_retained": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Research Retained"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retained Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_research_new": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Research New"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "New Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_research_returning": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Research Returning"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Returning Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_customer_flow.trend_research_churned_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_customer_flow",
+			          "ConceptualProperty": "Trend: Research Churned (-)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Churned Customers (-)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fact_contract_revenue.cms_contract_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold fact_contract_revenue",
+			          "ConceptualProperty": "cms_contract_type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contract Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_research_measure.commercial_contract_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_research_measure",
+			          "ConceptualProperty": "Commercial Contract Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Research": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Research Revenue (commercial)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_research_measure.research_r_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_research_measure",
+			          "ConceptualProperty": "Research R Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_research_measure.research_f_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_research_measure",
+			          "ConceptualProperty": "Research F Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "F": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_research_measure.research_m_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_research_measure",
+			          "ConceptualProperty": "Research M Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "M": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_research_measure.research_customers_asof": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_research_measure",
+			          "ConceptualProperty": "Research Customers (As-of)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_research_measure.revenue_401": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_research_measure",
+			          "ConceptualProperty": "Revenue 401"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.industry_org": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "Industry (Org)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "อุตสาหกรรม": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.tsic_dim_customer": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "TSIC (dim_customer)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TSIC Division": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.group_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "group_label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TSIC Group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.class_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "class_label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TSIC Class": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.activity_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "activity_label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TSIC Activity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.primary_customer_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "primary_customer_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.customer_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "customer_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customer ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "silver_dim_customer.customer_address": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "silver dim_customer",
+			          "ConceptualProperty": "Customer Address"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ที่อยู่": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_org.org_tsic_share_centre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_org",
+			          "ConceptualProperty": "Org TSIC Share (centre)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% ของรายได้ลูกค้าของศูนย์": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_org.org_tsic_share_dsi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_org",
+			          "ConceptualProperty": "Org TSIC Share (Total)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% ของรายได้ลูกค้าทั้งองค์กร": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_org.org_client_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_org",
+			          "ConceptualProperty": "Org Client Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "รายได้ลูกค้า": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_org.org_selected_centre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_org",
+			          "ConceptualProperty": "Org Selected Centre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ศูนย์/สำนัก": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_org.org_revenue_share_in_centre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_org",
+			          "ConceptualProperty": "Org Revenue Share in Centre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% of Centre": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_org.org_share_of_dsi_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_org",
+			          "ConceptualProperty": "Org Share of Total Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share of Total Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_profit_center.columnู์_ั_่": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_profit_center",
+			          "ConceptualProperty": "ศูนย์/สำนัก (ย่อ)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ศูนย์/สำนัก": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Centre": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.segment_as_of": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Segment (as of)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Service Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Segment (FY end)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.service_revenue_by_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Service Revenue by Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Service revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.service_customers_asof_today": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Service Customers (As-of today)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.of_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "% of Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.of_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "% of Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.months_since_last_invoice": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Months Since Last Invoice"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Avg Months Since Last": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Months Since Last": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Months Since Last Purchase": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.r_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "R Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.f_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "F Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "F": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.m_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "M Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "M": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.invoices_12m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Invoices (12m)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Invoices 12m": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.lifetime_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Lifetime Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lifetime Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.usual_gap_months": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Usual Gap (months)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Usual Gap (months)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.overdue_ratio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Overdue Ratio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Overdue Ratio": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Overdue Ratio (เท่า)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.research_usual_gap_months": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Research Usual Gap (months)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Usual Gap (months)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.research_overdue_ratio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "Research Overdue Ratio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Overdue Ratio": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_segment.rfm_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_segment",
+			          "ConceptualProperty": "RFM Code"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RFM": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.research_segment_as_of": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Research Segment (as of)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.research_segment_card": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Research Segment (card)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.research_recognised_card": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Research Recognised (card)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue Recognised": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.service_invoices_12m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Service Invoices 12m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Invoices 12 months": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.research_contracts_card": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Research Contracts (card)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contracts": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.service_invoices": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Service Invoices"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Invoices": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.research_contract_value_card": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Research Contract Value (card)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contract Value (ex VAT)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.tenure_years": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Tenure (years)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tenure (ปี)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.contract_value_ex_vat_any_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Contract Value ex VAT (any status)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Value (ex VAT)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_exec.research_revenue_recognised_lifetime": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_exec",
+			          "ConceptualProperty": "Research Revenue Recognised Lifetime"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Recognised": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "service_type.service_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Service Type",
+			          "ConceptualProperty": "service_type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Service Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_segment.segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_segment",
+			          "ConceptualProperty": "segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Service Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.revenue_per_customer_12m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Revenue per Customer 12m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue / Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.client_contract_value_by_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Client Contract Value by Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contract value 5y": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.research_contracts_5y": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Research Contracts 5y"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contracts 5y": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.research_contract_value_5y": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Research Contract Value 5y"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Value 5y": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Contract Value 5y": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.avg_months_since_last_contract": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Avg Months Since Last Contract"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Months Since Last": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Avg Months Since Last": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.research_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "% Research Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.research_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "% Research Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.value_per_research_customer": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Value per Research Customer"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Value / Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.customers_with_running_contract": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Customers with Running Contract"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Running": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_v2.customer_bridge_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_v2",
+			          "ConceptualProperty": "Customer Bridge Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_segment.segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_segment",
+			          "ConceptualProperty": "segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Research Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.risk_band": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "risk_band"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Risk band": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RFM segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.customer_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "customer_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.recency_months": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "recency_months"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Months since last invoice": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.freq_12m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "freq_12m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Invoices (12m)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.mon_12m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "mon_12m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue (12m)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_churn_score.overdue_ratio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold churn_score",
+			          "ConceptualProperty": "overdue_ratio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Overdue ratio": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.customers_scored": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "Customers Scored"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Customers Scored": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.high_risk_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "High Risk Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "High Risk Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.high_risk_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "High Risk %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "High Risk %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.expected_churners": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "Expected Churners"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Expected Churners (12m)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.revenue_at_risk_12m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "Revenue at Risk (12m)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue at Risk (12m)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.avg_churn_probability": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "Avg Churn Probability"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Avg churn probability": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measure_churn.churn_probability": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_measure_churn",
+			          "ConceptualProperty": "Churn Probability"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Churn probability": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.contract_no_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "Contract No."
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contract No.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.project_name_th": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "project_name_th"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Project": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.contract_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "contract_type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.contract_class": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "contract_class"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Class": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.status_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "status_group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.sign_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "sign_date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Signed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_research_contract.valid_to": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold dim_research_contract",
+			          "ConceptualProperty": "valid_to"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "End Date": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

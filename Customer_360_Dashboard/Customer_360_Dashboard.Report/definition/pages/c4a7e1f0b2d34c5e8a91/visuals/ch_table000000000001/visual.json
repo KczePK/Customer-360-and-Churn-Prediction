@@ -1,0 +1,454 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "ch_table000000000001",
+  "position": {
+    "x": 24,
+    "y": 620,
+    "z": 9000,
+    "height": 448,
+    "width": 1872,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "customer_name"
+                }
+              },
+              "queryRef": "gold churn_score.customer_name",
+              "nativeQueryRef": "Customer",
+              "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "gold churn_score.segment",
+              "nativeQueryRef": "RFM segment",
+              "displayName": "RFM segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "risk_band"
+                }
+              },
+              "queryRef": "gold churn_score.risk_band",
+              "nativeQueryRef": "Risk band",
+              "displayName": "Risk band"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_churn"
+                    }
+                  },
+                  "Property": "Churn Probability"
+                }
+              },
+              "queryRef": "_measure_churn.Churn Probability",
+              "nativeQueryRef": "Churn probability",
+              "displayName": "Churn probability",
+              "format": "0.0%"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "recency_months"
+                }
+              },
+              "queryRef": "gold churn_score.recency_months",
+              "nativeQueryRef": "Months since last invoice",
+              "displayName": "Months since last invoice"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "freq_12m"
+                }
+              },
+              "queryRef": "gold churn_score.freq_12m",
+              "nativeQueryRef": "Invoices (12m)",
+              "displayName": "Invoices (12m)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "mon_12m"
+                }
+              },
+              "queryRef": "gold churn_score.mon_12m",
+              "nativeQueryRef": "Revenue (12m)",
+              "displayName": "Revenue (12m)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold churn_score"
+                    }
+                  },
+                  "Property": "overdue_ratio"
+                }
+              },
+              "queryRef": "gold churn_score.overdue_ratio",
+              "nativeQueryRef": "Overdue ratio",
+              "displayName": "Overdue ratio"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver dim_customer"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "silver dim_customer.customer_id",
+              "nativeQueryRef": "Customer ID",
+              "displayName": "Customer ID"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_churn"
+                  }
+                },
+                "Property": "Churn Probability"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "259D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.customer_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "356D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.segment"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "172.99999279922378D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.risk_band"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "185.99999518143534D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_churn.Churn Probability"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "224D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.recency_months"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.99999713897728D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.freq_12m"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "158.9999953761249D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.mon_12m"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.99723693931264D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "silver dim_customer.customer_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "165.9999938633136D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold churn_score.overdue_ratio"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customers Ranked by Churn Risk'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'highest risk first | overdue ratio = months since last invoice ÷ usual gap between invoices'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

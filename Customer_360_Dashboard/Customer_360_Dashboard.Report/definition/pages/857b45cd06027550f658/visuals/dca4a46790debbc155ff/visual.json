@@ -1,0 +1,91 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "dca4a46790debbc155ff",
+  "position": {
+    "x": 718.71123767248025,
+    "y": 191.21170878787237,
+    "z": 8000,
+    "height": 62.662116040955631,
+    "width": 170.47781569965869,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Lifetime Revenue"
+                }
+              },
+              "queryRef": "_measure_segment.Lifetime Revenue",
+              "nativeQueryRef": "Lifetime Revenue",
+              "displayName": "Lifetime Revenue",
+              "format": "\"฿\"#,0;-\"฿\"#,0;\"฿\"#,0"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_segment"
+                  }
+                },
+                "Property": "Lifetime Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

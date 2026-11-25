@@ -1,0 +1,38 @@
+{
+  "Logistic regression (raw)": {
+    "roc_auc": 0.821,
+    "pr_auc": 0.747,
+    "brier": 0.1732,
+    "log_loss": 0.5154,
+    "top10_lift": 2.03,
+    "top10_capture": 0.204
+  },
+  "Logistic regression (calibrated)": {
+    "roc_auc": 0.821,
+    "pr_auc": 0.747,
+    "brier": 0.175,
+    "log_loss": 0.5196,
+    "top10_lift": 2.03,
+    "top10_capture": 0.204,
+    "calib_year_pr_auc": 0.712
+  },
+  "Gradient boosting (raw)": {
+    "roc_auc": 0.808,
+    "pr_auc": 0.724,
+    "brier": 0.1793,
+    "log_loss": 0.5338,
+    "top10_lift": 1.84,
+    "top10_capture": 0.185
+  },
+  "Gradient boosting (calibrated)": {
+    "roc_auc": 0.808,
+    "pr_auc": 0.724,
+    "brier": 0.1787,
+    "log_loss": 0.5272,
+    "top10_lift": 1.84,
+    "top10_capture": 0.185,
+    "calib_year_pr_auc": 0.686
+  },
+  "_base_rate_test": 0.4266,
+  "_brier_if_always_base_rate": 0.246
+}

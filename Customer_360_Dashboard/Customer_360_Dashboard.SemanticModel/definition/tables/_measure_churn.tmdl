@@ -1,0 +1,65 @@
+table _measure_churn
+	lineageTag: d71b1e9f-0296-4294-8b98-6e11e9621f20
+
+	measure 'Customers Scored' =
+			-- active service customers scored by the churn model (latest snapshot)
+			COUNTROWS ( 'gold churn_score' )
+		formatString: #,0
+		displayFolder: Churn
+		lineageTag: d61b8452-7f6e-4c74-9727-d1ff42c8b776
+
+	measure 'High Risk Customers' =
+			-- churn probability >= 50%
+			CALCULATE ( [Customers Scored], 'gold churn_score'[risk_band] = "High" )
+		formatString: #,0
+		displayFolder: Churn
+		lineageTag: 851327f8-9178-4c1d-a4a9-a6d5a5f786f7
+
+	measure 'High Risk %' =
+			-- share of scored customers in the High band
+			DIVIDE ( [High Risk Customers], [Customers Scored] )
+		formatString: 0.0%
+		displayFolder: Churn
+		lineageTag: e8f354b5-eb18-4d24-bb38-be9c2b9c7ada
+
+	measure 'Expected Churners' =
+			-- sum of probabilities = expected number of customers lost in the next 12 months
+			SUM ( 'gold churn_score'[churn_probability] )
+		formatString: #,0
+		displayFolder: Churn
+		lineageTag: f44c59b0-b488-4682-a8c5-978ddb636a02
+
+	measure 'Revenue at Risk (12m)' =
+			-- last-12-month revenue weighted by churn probability
+			SUMX ( 'gold churn_score', 'gold churn_score'[churn_probability] * 'gold churn_score'[mon_12m] )
+		formatString: "฿"#,0
+		displayFolder: Churn
+		lineageTag: eb450cf0-2aff-4cb9-9e81-942e835416dd
+
+	measure 'Avg Churn Probability' =
+			-- mean predicted probability
+			AVERAGE ( 'gold churn_score'[churn_probability] )
+		formatString: 0.0%
+		displayFolder: Churn
+		lineageTag: e43c0d77-6afb-478a-8ed7-447e4fe2a130
+
+	measure 'Churn Probability' =
+			-- row-level probability for tables
+			MAX ( 'gold churn_score'[churn_probability] )
+		formatString: 0.0%
+		displayFolder: Churn
+		lineageTag: 3adbe0a7-3711-4a9b-97f2-ba1307389d5e
+
+	column Column
+		isHidden
+		lineageTag: e02d02a5-2f17-4f96-817b-551656baf79a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure_churn = calculated
+		mode: import
+		source = Row("Column", BLANK())
+

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "60075a45d6888e80be13",
+  "position": {
+    "x": 215.0523903077931,
+    "y": 106.53569089718408,
+    "z": 8000,
+    "height": 60,
+    "width": 170,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure"
+                    }
+                  },
+                  "Property": "Service Revenue"
+                }
+              },
+              "queryRef": "_measure.Service Revenue",
+              "nativeQueryRef": "Service Revenue",
+              "format": "\"฿\"#,0.00;-\"฿\"#,0.00;\"฿\"#,0.00"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure"
+                  }
+                },
+                "Property": "Service Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

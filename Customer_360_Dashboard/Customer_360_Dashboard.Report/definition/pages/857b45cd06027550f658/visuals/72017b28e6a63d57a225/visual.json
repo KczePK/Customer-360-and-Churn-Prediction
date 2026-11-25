@@ -1,0 +1,159 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "72017b28e6a63d57a225",
+  "position": {
+    "x": 1600.0000000000005,
+    "y": 326.87116564417175,
+    "z": 27000,
+    "height": 399.50920245398771,
+    "width": 313.12883435582819,
+    "tabOrder": 27000
+  },
+  "visual": {
+    "visualType": "map",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver dim_customer"
+                    }
+                  },
+                  "Property": "province_th"
+                }
+              },
+              "queryRef": "silver dim_customer.province_th",
+              "nativeQueryRef": "province_th",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver dim_customer"
+                    }
+                  },
+                  "Property": "Customer Address"
+                }
+              },
+              "queryRef": "silver dim_customer.Customer Address",
+              "nativeQueryRef": "ที่อยู่",
+              "displayName": "ที่อยู่"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {}
+        }
+      ],
+      "mapControls": [
+        {
+          "properties": {
+            "autoZoom": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "geocodingCulture": {
+              "expr": {
+                "Literal": {
+                  "Value": "'en-US'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Location'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

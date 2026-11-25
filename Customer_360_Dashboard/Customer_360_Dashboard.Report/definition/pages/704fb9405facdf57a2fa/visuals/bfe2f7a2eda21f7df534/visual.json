@@ -1,0 +1,368 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bfe2f7a2eda21f7df534",
+  "position": {
+    "x": 6.6502463054187189,
+    "y": 236.74876847290639,
+    "z": 2000,
+    "height": 446.89655172413791,
+    "width": 840.59113300492606,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_segment"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "gold dim_segment.segment",
+              "nativeQueryRef": "Segment",
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Service Customers (As-of today)"
+                }
+              },
+              "queryRef": "_measure_segment.Service Customers (As-of today)",
+              "nativeQueryRef": "Customers",
+              "displayName": "Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "% of Customers"
+                }
+              },
+              "queryRef": "_measure_segment.% of Customers",
+              "nativeQueryRef": "% Customers",
+              "displayName": "% Customers",
+              "format": "0.0%;-0.0%;0.0%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure"
+                    }
+                  },
+                  "Property": "12m Revenue"
+                }
+              },
+              "queryRef": "_measure.12m Revenue",
+              "nativeQueryRef": "Revenue 12m",
+              "displayName": "Revenue 12m",
+              "format": "\"฿\"#,0;-\"฿\"#,0;\"฿\"#,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "% of Revenue"
+                }
+              },
+              "queryRef": "_measure_segment.% of Revenue",
+              "nativeQueryRef": "% Revenue",
+              "displayName": "% Revenue",
+              "format": "0.0%;-0.0%;0.0%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_v2"
+                    }
+                  },
+                  "Property": "Revenue per Customer 12m"
+                }
+              },
+              "queryRef": "_measure_v2.Revenue per Customer 12m",
+              "nativeQueryRef": "Revenue / Customer",
+              "displayName": "Revenue / Customer",
+              "format": "\"฿\"#,0;-\"฿\"#,0;\"฿\"#,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Months Since Last Invoice"
+                }
+              },
+              "queryRef": "_measure_segment.Months Since Last Invoice",
+              "nativeQueryRef": "Avg Months Since Last",
+              "displayName": "Avg Months Since Last",
+              "format": "0.0"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold dim_segment"
+                  }
+                },
+                "Property": "segment"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'maxColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure.12m Revenue"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segment Scorecard'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,140 @@
+table _measure_v2
+	lineageTag: ff025377-5096-444e-9c95-c8f95c0363f9
+
+	measure 'Revenue per Customer 12m' =
+			
+			DIVIDE ( [12m Revenue], [Service Customers (As-of today)] )
+		formatString: "฿"#,0
+		displayFolder: Analysis v2
+		lineageTag: e6401aeb-37c9-41cd-b3c0-2d840a578e9f
+
+	measure 'Customer Bridge Value' =
+			
+			-- waterfall: active last FY - churned + new + returning = active this FY (organisation-wide)
+			SWITCH (
+			    SELECTEDVALUE ( 'Customer Bridge Step'[step_sort] ),
+			    1, [Active Customers Last FY],
+			    2, - [Churned Customers],
+			    3, [New Customers],
+			    4, [Returning Customers]
+			)
+		formatString: #,0
+		displayFolder: Lifecycle v2
+		lineageTag: da5fc941-11af-47c9-9a2b-8a1dd0589a19
+
+	measure '% Research Customers' =
+			
+			-- share of research clients by segment (denominator excludes R08 Lost)
+			VAR segCustomers = CALCULATE ( [Research Customers (As-of)], KEEPFILTERS ( LEFT ( 'gold fact_research_customer_monthly'[segment], 3 ) <> "R08" ) )
+			VAR allCustomers = CALCULATE ( [Research Customers (As-of)], REMOVEFILTERS ( 'gold dim_research_segment' ), REMOVEFILTERS ( 'gold fact_research_customer_monthly'[segment] ), LEFT ( 'gold fact_research_customer_monthly'[segment], 3 ) <> "R08" )
+			RETURN DIVIDE ( segCustomers, allCustomers )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Analysis v2
+		lineageTag: 0dbe1a40-4e08-4a59-b60a-17c2641f788d
+
+	measure 'Research Contract Value 5y' =
+			
+			-- client contract value signed in the last 60 months (CMS value, incl. VAT)
+			VAR rk = [Research As-of Month Key]
+			RETURN CALCULATE ( SUM ( 'gold fact_research_customer_monthly'[mon_60m] ), REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = rk )
+		formatString: "฿"#,0
+		displayFolder: Analysis v2
+		lineageTag: cabdd044-e619-4397-b048-ee6126eb8ec9
+
+	measure '% Research Value' =
+			
+			DIVIDE ( [Research Contract Value 5y], CALCULATE ( [Research Contract Value 5y], REMOVEFILTERS ( 'gold dim_research_segment' ), REMOVEFILTERS ( 'gold fact_research_customer_monthly'[segment] ) ) )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Analysis v2
+		lineageTag: 44806a84-93be-4a21-ae5d-72f0f2d4ce36
+
+	measure 'Research Contracts 5y' =
+			
+			VAR rk = [Research As-of Month Key]
+			RETURN CALCULATE ( SUM ( 'gold fact_research_customer_monthly'[freq_60m] ), REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = rk )
+		formatString: #,0
+		displayFolder: Analysis v2
+		lineageTag: e7260c02-5224-43c2-8278-9384b1a430f8
+
+	measure 'Value per Research Customer' =
+			
+			DIVIDE ( [Research Contract Value 5y], [Research Customers (As-of)] )
+		formatString: "฿"#,0
+		displayFolder: Analysis v2
+		lineageTag: 57cf5f31-3070-4170-a678-dc7b2799c2eb
+
+	measure 'Avg Months Since Last Contract' =
+			
+			VAR rk = [Research As-of Month Key]
+			RETURN CALCULATE ( AVERAGE ( 'gold fact_research_customer_monthly'[recency_months] ), REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = rk )
+		formatString: 0.0
+		displayFolder: Analysis v2
+		lineageTag: 56f507b4-2d78-48bc-bd5b-abc93840920f
+
+	measure 'Customers with Running Contract' =
+			
+			VAR rk = [Research As-of Month Key]
+			RETURN CALCULATE ( COUNTROWS ( FILTER ( 'gold fact_research_customer_monthly', 'gold fact_research_customer_monthly'[has_active_contract] = 1 ) ), REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = rk ) + 0
+		formatString: #,0
+		displayFolder: Analysis v2
+		lineageTag: e425a225-f1aa-40f1-b4cd-f1b2506f3fc6
+
+	measure 'Client Contract Value by Segment' =
+			
+			-- Client contract value signed in 5y that follows the research segment selection.
+			-- dim_research_segment only filters fact_research_customer_monthly, so pass the
+			-- customers in the selected segment(s) at the research as-of month to dim_research_contract.
+			VAR rk = [Research As-of Month Key]
+			VAR SegmentSelected =
+			    ISFILTERED ( 'gold dim_research_segment' )
+			        || ISFILTERED ( 'gold fact_research_customer_monthly'[segment] )
+			VAR SegCustomers =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_research_customer_monthly'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold fact_research_customer_monthly'[snapshot_date_key] = rk
+			    )
+			-- 60-month window ends at the research as-of month (follows the Fiscal Year slicer),
+			-- the same window as mon_60m in the scorecard, so the bars add up to the scorecard value.
+			VAR d1 = EOMONTH ( DATE ( INT ( rk / 10000 ), MOD ( INT ( rk / 100 ), 100 ), 1 ), 0 )
+			VAR d0 = EOMONTH ( d1, -60 )
+			RETURN
+			    IF (
+			        SegmentSelected,
+			        CALCULATE (
+			            SUM ( 'gold dim_research_contract'[contract_value_thb] ),
+			            REMOVEFILTERS ( 'gold dim_date' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1,
+			            'gold dim_research_contract'[sign_date] > d0,
+			            'gold dim_research_contract'[sign_date] <= d1,
+			            KEEPFILTERS ( TREATAS ( SegCustomers, 'gold dim_research_contract'[enterprise_id] ) )
+			        ),
+			        CALCULATE (
+			            SUM ( 'gold dim_research_contract'[contract_value_thb] ),
+			            REMOVEFILTERS ( 'gold dim_date' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1,
+			            'gold dim_research_contract'[sign_date] > d0,
+			            'gold dim_research_contract'[sign_date] <= d1
+			        )
+			    )
+		formatString: "฿"#,0
+		displayFolder: Research analysis
+		lineageTag: e9df77c4-9d67-43b6-a61b-8fbebda0b113
+
+	column Column
+		formatString: 0
+		lineageTag: f7420bae-b3dc-4ab0-9293-ca4f9adb5103
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure_v2 = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = d2b5d23b6cf64dc288b32b0f2aacdb7c
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

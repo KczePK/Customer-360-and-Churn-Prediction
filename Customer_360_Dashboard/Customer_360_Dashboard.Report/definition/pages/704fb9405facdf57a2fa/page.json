@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "704fb9405facdf57a2fa",
+  "displayName": "Customer Analysis – Services",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "2434aa21dcd556944033",
+    "type": "Default",
+    "parameters": []
+  },
+  "visualInteractions": [
+    {
+      "source": "cc1366ba685489a2c8b4",
+      "target": "327ee1c47b7c600d4810",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cc1366ba685489a2c8b4",
+      "target": "98ea52e6595d7a47ae15",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cc1366ba685489a2c8b4",
+      "target": "bfe2f7a2eda21f7df534",
+      "type": "NoFilter"
+    }
+  ]
+}

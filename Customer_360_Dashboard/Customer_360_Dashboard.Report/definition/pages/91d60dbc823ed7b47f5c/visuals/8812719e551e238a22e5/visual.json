@@ -1,0 +1,238 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "8812719e551e238a22e5",
+  "position": {
+    "x": 970,
+    "y": 225,
+    "z": 4000,
+    "height": 415,
+    "width": 934,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_profit_center"
+                    }
+                  },
+                  "Property": "ศูนย์/สำนัก (ย่อ)"
+                }
+              },
+              "queryRef": "gold dim_profit_center.ศูนย์/สำนัก (ย่อ)",
+              "nativeQueryRef": "ศูนย์/สำนัก (ย่อ)",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Retained Customers"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Retained Customers",
+              "nativeQueryRef": "Retained Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "New Customers"
+                }
+              },
+              "queryRef": "_measure_customer_flow.New Customers",
+              "nativeQueryRef": "New Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Returning Customers"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Returning Customers",
+              "nativeQueryRef": "Returning Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Churned Customers (-)"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Churned Customers (-)",
+              "nativeQueryRef": "Churned Customers (-)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_customer_flow"
+                  }
+                },
+                "Property": "Retained Customers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopRight'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "20L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Services – Lifecycle by Centre'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

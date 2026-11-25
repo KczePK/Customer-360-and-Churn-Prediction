@@ -1,0 +1,438 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "208a388ca61917795308",
+  "position": {
+    "x": 235.41871921182266,
+    "y": 215.46798029556649,
+    "z": 8000,
+    "height": 493.44827586206895,
+    "width": 1459.0640394088668,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "หลักเกณฑ์ RFM – ลูกค้างานบริการ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "ข้อมูล: รายได้งานบริการ (GL 402) ที่ระบุลูกค้าได้ 1 ราย | คำนวณทุกเดือน และแสดง ณ เดือนล่าสุดของปีงบที่เลือก | ใบแจ้งหนี้ = เอกสารที่รายได้สุทธิ > 0 (ไม่นับใบลดหนี้)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "คะแนน R / F / M (5 = ดีที่สุด, เกณฑ์คงที่ทุกเดือน)",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#118dff"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R  เดือนนับจากใบแจ้งหนี้ล่าสุด:   5 = 0–1   |   4 = 2–3   |   3 = 4–6   |   2 = 7–12   |   1 = 13+",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "F  จำนวนใบแจ้งหนี้ใน 12 เดือน:   5 = 10+   |   4 = 5–9   |   3 = 3–4   |   2 = 2   |   1 = 0–1",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "M  รายได้สุทธิใน 12 เดือน:   5 = ฿150,000+   |   4 = ฿50,000–149,999   |   3 = ฿15,000–49,999   |   2 = ฿5,000–14,999   |   1 = ต่ำกว่า ฿5,000",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "กลุ่มลูกค้า",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#118dff"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "01 First-Time Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ออกใบแจ้งหนี้ครั้งแรกในเดือนนั้น",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "02 Core Partner",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≥ 4, F ≥ 4, M ≥ 4",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "03b Periodic High-Value Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≤ 2, M ≥ 4 และยังอยู่ในรอบซื้อปกติของตัวเอง (Overdue Ratio < 1.2)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "03 Lapsing High-Value Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≤ 2, M ≥ 4 และเลยรอบซื้อปกติแล้ว หรือเคยซื้อเพียงเดือนเดียว",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "04 Lapsing Frequent Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≤ 2, F ≥ 3",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "05 Cooling Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R, F และ M อยู่ในช่วง 2–3 ทั้งหมด",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "06 Regular Service Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≥ 3, F ≥ 3, M ≥ 3",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "07 Frequent Small-Job Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≥ 3, F ≥ 3, M ≤ 2",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "08 Large-Job Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≥ 3, F ≤ 2, M ≥ 4",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "09 Occasional Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≥ 3, F ≤ 2, M ≤ 3",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "10 Dormant Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  R ≤ 2, F ≤ 2, M ≤ 3 (ไม่มีใบแจ้งหนี้ 7–36 เดือน)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "11 Lost Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ไม่มีใบแจ้งหนี้ 37 เดือนขึ้นไป",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "isHidden": true
+}

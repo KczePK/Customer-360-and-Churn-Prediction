@@ -1,0 +1,125 @@
+table 'gold churn_score'
+	lineageTag: 6f32a4ff-213a-4b02-b7e8-6aa401994ec0
+
+	column enterprise_id
+		dataType: string
+		isHidden
+		lineageTag: 39e1fc48-e126-4440-9ffe-288cab2fdba8
+		summarizeBy: none
+		sourceColumn: enterprise_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 68231d49-465d-49db-8c43-34a07c5df13e
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_month
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: 1d6668d7-ecd2-45cb-83d4-f3a87fe1e8c2
+		summarizeBy: none
+		sourceColumn: snapshot_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: c9fcfc28-9315-479f-b9d4-997f5162cd7c
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_probability
+		dataType: double
+		formatString: 0.0%
+		lineageTag: fe41b008-3c47-4076-b29a-53c98f6a2dd7
+		summarizeBy: none
+		sourceColumn: churn_probability
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_band
+		dataType: string
+		lineageTag: a2cfbe0a-6e76-4fe0-8d70-3f95983509f7
+		summarizeBy: none
+		sourceColumn: risk_band
+		sortByColumn: risk_band_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_band_sort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4b868aac-6a2d-4748-8a27-e165d3c6004c
+		summarizeBy: none
+		sourceColumn: risk_band_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column recency_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 7815ca86-0fbf-41b2-b895-f43d5e2b8188
+		summarizeBy: none
+		sourceColumn: recency_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column freq_12m
+		dataType: double
+		formatString: #,0
+		lineageTag: 398352ae-30ca-4ec1-bf7d-dd093ffe69f8
+		summarizeBy: none
+		sourceColumn: freq_12m
+
+		annotation SummarizationSetBy = Automatic
+
+	column mon_12m
+		dataType: double
+		formatString: "฿"#,0
+		lineageTag: 411f0e11-c0bb-48c9-9a49-e6707adf750b
+		summarizeBy: none
+		sourceColumn: mon_12m
+
+		annotation SummarizationSetBy = Automatic
+
+	column overdue_ratio
+		dataType: double
+		formatString: 0.00
+		lineageTag: dee076b0-6b52-4fc0-b004-18bca1c6bdeb
+		summarizeBy: none
+		sourceColumn: overdue_ratio
+
+		annotation SummarizationSetBy = Automatic
+
+	column model
+		dataType: string
+		lineageTag: de327091-66a6-4c13-8bf6-1ad9bbeebffd
+		summarizeBy: none
+		sourceColumn: model
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold churn_score' = m
+		mode: import
+		source =
+				let
+				  // Churn model output (Churn_Prediction/outputs/churn_scores.csv), demo data
+				  Data = Text.Combine({
+				    "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"
+				  }),
+				  Rows = Json.Document(Binary.Decompress(Binary.FromText(Data, BinaryEncoding.Base64), Compression.Deflate)),
+				  Source = Table.FromRows(Rows, {"enterprise_id", "customer_name", "snapshot_month", "segment", "churn_probability", "risk_band", "risk_band_sort", "recency_months", "freq_12m", "mon_12m", "overdue_ratio", "model"}),
+				  Typed = Table.TransformColumnTypes(Source, {{"enterprise_id", type text}, {"customer_name", type text}, {"snapshot_month", type datetime}, {"segment", type text}, {"churn_probability", type number}, {"risk_band", type text}, {"risk_band_sort", Int64.Type}, {"recency_months", Int64.Type}, {"freq_12m", type number}, {"mon_12m", type number}, {"overdue_ratio", type number}, {"model", type text}}, "en-US")
+				in
+				  Typed
+
+	annotation PBI_ResultType = Table
+

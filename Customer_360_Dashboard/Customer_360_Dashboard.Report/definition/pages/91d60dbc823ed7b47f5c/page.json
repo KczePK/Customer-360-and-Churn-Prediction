@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "91d60dbc823ed7b47f5c",
+  "displayName": "Customer Lifecycle",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "de8b9905848c9a3520c3",
+    "type": "Default",
+    "parameters": []
+  },
+  "visualInteractions": [
+    {
+      "source": "ad624afac7e55e3ea310",
+      "target": "9151929c09d4409c0c94",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9151929c09d4409c0c94",
+      "target": "ad624afac7e55e3ea310",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8812719e551e238a22e5",
+      "target": "787ed796174c5b5a8a12",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fcd59b3bdbb11ae1f7d0",
+      "target": "e13d9a091c194aea1679",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fcd59b3bdbb11ae1f7d0",
+      "target": "dfc228c2c51401c878f1",
+      "type": "NoFilter"
+    }
+  ]
+}

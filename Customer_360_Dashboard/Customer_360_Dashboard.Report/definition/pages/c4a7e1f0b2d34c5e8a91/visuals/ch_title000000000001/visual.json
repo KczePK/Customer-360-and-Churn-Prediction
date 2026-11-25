@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "ch_title000000000001",
+  "position": {
+    "x": 390,
+    "y": 12.5,
+    "z": 0,
+    "height": 80,
+    "width": 1135,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Customer Churn Risk",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "32pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Probability that an active service customer buys nothing in the next 12 months ",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#605e5c"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

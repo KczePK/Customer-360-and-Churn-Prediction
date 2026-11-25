@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bec96d4c85c685742abe",
+  "position": {
+    "x": 1563.3644859813082,
+    "y": 107.66355140186916,
+    "z": 10000,
+    "height": 121.12149532710279,
+    "width": 347.66355140186914,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Research Active Customers"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Research Active Customers",
+              "nativeQueryRef": "Active Research Clients (ไม่รวม PMU)",
+              "displayName": "Active Research Clients (ไม่รวม PMU)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_customer_flow.Research Active Customers"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

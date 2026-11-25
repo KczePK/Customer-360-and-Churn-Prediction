@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1c2d94f1a1d68d7a1b83",
+  "displayName": "Customer by Org Center",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "a09e19e3ae7dc2922f97",
+    "type": "Default",
+    "parameters": []
+  },
+  "visualInteractions": [
+    {
+      "source": "0bede921f6d0c3786b3f",
+      "target": "2f810852e3096248437e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0bede921f6d0c3786b3f",
+      "target": "5b5e1ecc0872dd1cde5a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2f810852e3096248437e",
+      "target": "bc9e6093d45b2f48d08e",
+      "type": "NoFilter"
+    }
+  ]
+}

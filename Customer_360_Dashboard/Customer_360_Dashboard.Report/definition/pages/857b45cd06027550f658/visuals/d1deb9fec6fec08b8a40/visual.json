@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "d1deb9fec6fec08b8a40",
+  "position": {
+    "x": 1529.6928327645051,
+    "y": 24.880546075085324,
+    "z": 3000,
+    "height": 50.682593856655288,
+    "width": 391.63822525597266,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": {
+                      "propertyIdentifier": {
+                        "objectName": "values",
+                        "propertyName": "expr"
+                      },
+                      "selector": {
+                        "id": "Value"
+                      }
+                    },
+                    "textStyle": {
+                      "fontSize": "24pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "expr": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_helper"
+                    }
+                  },
+                  "Property": "As-of Label"
+                },
+                "Annotations": {
+                  "NaturalLanguage": {
+                    "version": 1,
+                    "kind": "NaturalLanguage",
+                    "annotation": {
+                      "name": "Value"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "Value"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

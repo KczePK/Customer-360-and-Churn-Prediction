@@ -1,0 +1,39 @@
+table 'Revenue Bridge Step'
+	lineageTag: ce8bfe3d-9f56-432d-bab9-bd254a37f9b9
+
+	column step
+		lineageTag: 10ac8807-6e2e-4f02-83f3-b59db0035dc1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [step]
+		sortByColumn: step_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column step_sort
+		formatString: 0
+		lineageTag: cd1a80b4-0a9f-4ab7-b83e-2b250d0b67e8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [step_sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Revenue Bridge Step' = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "step", STRING, "step_sort", INTEGER,
+				    {
+				        { "Last FY revenue", 1 },
+				        { "New customers", 2 },
+				        { "Returning customers", 3 },
+				        { "Expansion", 4 },
+				        { "Contraction", 5 },
+				        { "Churned", 6 }
+				    }
+				)
+
+	annotation PBI_Id = 7386194124a24c9f9355f42cac5c58c9
+

@@ -1,0 +1,83 @@
+table _measure
+	lineageTag: 10d00bc8-010b-4875-9dfc-e614c0016fde
+
+	measure 'Service Revenue' =
+			
+			SUM ( 'gold fact_revenue_line'[revenue_thb] )
+		lineageTag: 11449ec8-f4ba-47d2-b74d-a20048be25f5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '12m Revenue' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        SUM ( 'gold fact_customer_rfm_monthly'[mon_12m] ),
+			        'gold fact_customer_rfm_monthly'[snapshot_date_key] = k
+			    )
+		lineageTag: beea155b-4738-4acf-a0c0-9f9a2007bc6b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Realized Revenue' =
+			-- service revenue + commercial contract revenue
+			[Service Revenue] + [Commercial Contract Revenue]
+		lineageTag: 4f9071e1-c9c6-4e31-984f-6ab4db90a87a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Realized Revenue Last Year' =
+			
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    CALCULATE (
+			        [Realized Revenue],
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold dim_date'[fiscal_year_be] = fy - 1
+			    )
+		lineageTag: 52079d97-177c-4be2-bba8-4efdeadb55f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Realized Revenue YoY %' =
+			
+			DIVIDE ( [Realized Revenue] - [Realized Revenue Last Year], [Realized Revenue Last Year] )
+		lineageTag: c97c672e-3f3c-4c07-8d03-a6d0adbdec23
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Realized Revenue by Source' =
+			-- one value per Revenue Source row; sums the selected sources on total rows.
+			-- Empty selection (e.g. the บริการ series while another source is cross-highlighted) returns blank,
+			-- not the total (the old SWITCH fallback double-counted on click).
+			SUMX (
+			    VALUES ( 'Revenue Source'[source_sort] ),
+			    SWITCH (
+			        'Revenue Source'[source_sort],
+			        1, [Service Revenue],
+			        2, [Commercial Contract Revenue (client)],
+			        3, [Commercial Contract Revenue (PMU)]
+			    )
+			)
+		lineageTag: f412d47c-d587-4913-ad05-b92a62c6d166
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: fdb0a941-02b7-49bf-8ba1-f76f1b88a811
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 0a83e0d426c748858867a5f29bdde6ba
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

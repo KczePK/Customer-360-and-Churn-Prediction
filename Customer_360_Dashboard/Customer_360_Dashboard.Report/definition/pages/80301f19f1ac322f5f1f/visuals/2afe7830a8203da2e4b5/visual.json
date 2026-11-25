@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2afe7830a8203da2e4b5",
+  "position": {
+    "x": 806.71905697446039,
+    "y": 106.53569089718408,
+    "z": 3000,
+    "height": 60,
+    "width": 178.33333333333334,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Retained Customers"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Retained Customers",
+              "nativeQueryRef": "Retained Customers"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_customer_flow"
+                  }
+                },
+                "Property": "Retained Customers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_customer_flow.Retained Customers"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,35 @@
+table 'Industry Source'
+	lineageTag: f56491bf-6ccf-44b8-a243-e607297c6b7f
+
+	column source
+		dataType: string
+		lineageTag: 0efee509-5217-40f1-b622-4d151414e6c7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [source]
+		sortByColumn: source_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: f28f39b6-2e7a-4279-8aed-9bb6f7db8823
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [source_sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Industry Source' = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "source", STRING, "source_sort", INTEGER,
+				    {
+				        { "Services", 1 },
+				        { "Research", 2 }
+				    }
+				)
+

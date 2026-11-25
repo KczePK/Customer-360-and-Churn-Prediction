@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "95ef9bda3028906a1bd4",
+  "position": {
+    "x": 7.9802955665024626,
+    "y": 107.73399014778325,
+    "z": 5000,
+    "height": 121.03448275862068,
+    "width": 441.57635467980293,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_org"
+                    }
+                  },
+                  "Property": "Org Selected Centre"
+                }
+              },
+              "queryRef": "_measure_org.Org Selected Centre",
+              "nativeQueryRef": "ศูนย์/สำนัก",
+              "displayName": "ศูนย์/สำนัก"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,143 @@
+table _measure_exec
+	lineageTag: 900800ac-d492-4d6a-af61-bc2e508837c4
+
+	measure 'Selected Customer' =
+			
+			SELECTEDVALUE ( 'silver dim_customer'[primary_customer_name], "" )
+		displayFolder: Customer 360
+		lineageTag: cae46973-cef9-4c88-8f62-78e25f535152
+
+	measure 'Customer Profile' =
+			
+			-- from silver dim_customer (page is filtered to one customer_id)
+			-- TSIC: activity_label (latest TSIC, already "code - name"); tsic_code_f only when the label is blank
+			VAR ty =
+			    CONCATENATEX (
+			        FILTER ( VALUES ( 'silver dim_customer'[customer_type] ), LEN ( 'silver dim_customer'[customer_type] ) > 0 ),
+			        'silver dim_customer'[customer_type], ", "
+			    )
+			VAR tax =
+			    CONCATENATEX (
+			        FILTER ( VALUES ( 'silver dim_customer'[tax_no] ), LEN ( 'silver dim_customer'[tax_no] ) > 0 ),
+			        'silver dim_customer'[tax_no], ", "
+			    )
+			VAR tsic =
+			    CONCATENATEX (
+			        FILTER (
+			            SUMMARIZE ( 'silver dim_customer', 'silver dim_customer'[tsic_code_f], 'silver dim_customer'[activity_label] ),
+			            LEN ( 'silver dim_customer'[tsic_code_f] & 'silver dim_customer'[activity_label] ) > 0
+			        ),
+			        IF (
+			            LEN ( 'silver dim_customer'[activity_label] ) > 0,
+			            TRIM ( 'silver dim_customer'[activity_label] ),
+			            TRIM ( 'silver dim_customer'[tsic_code_f] )
+			        ),
+			        ", "
+			    )
+			-- address: Customer Address column (house no. + ต./แขวง + อ./เขต + จ.)
+			VAR addr =
+			    CONCATENATEX (
+			        FILTER ( VALUES ( 'silver dim_customer'[Customer Address] ), LEN ( 'silver dim_customer'[Customer Address] ) > 0 ),
+			        'silver dim_customer'[Customer Address],
+			        UNICHAR ( 10 )
+			    )
+			RETURN
+			    IF ( LEN ( ty ) > 0, ty, "-" )
+			        & "  |  TSIC: " & IF ( LEN ( tsic ) > 0, tsic, "-" )
+			        & UNICHAR ( 10 )
+			        & "Tax ID: " & IF ( LEN ( tax ) > 0, tax, "-" )
+			        & UNICHAR ( 10 )
+			        & "ที่อยู่: " & IF ( LEN ( addr ) > 0, addr, "-" )
+		displayFolder: Customer 360
+		lineageTag: 0c56812b-d818-4a86-804e-3b2e68250700
+
+	measure 'Service Invoices' =
+			
+			-- purchase documents (same rule as F)
+			CALCULATE ( DISTINCTCOUNT ( 'gold fact_revenue_line'[document_no] ), 'gold fact_revenue_line'[is_purchase_doc] = 1 )
+		formatString: #,0
+		displayFolder: Customer 360
+		lineageTag: 7d44b2b2-e3cd-45c7-8d35-7a5a06b4f308
+
+	measure 'Research Segment (as of)' =
+			
+			VAR k = [Research As-of Month Key]
+			RETURN CALCULATE ( SELECTEDVALUE ( 'gold fact_research_customer_monthly'[segment] ), REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = k )
+		displayFolder: Customer 360
+		lineageTag: db87dcab-02d0-4b89-b3c4-aa2eab36cee4
+
+	measure 'Research Revenue Recognised Lifetime' =
+			
+			CALCULATE ( SUM ( 'gold dim_research_contract'[revenue_recognised_thb] ), REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[is_cancelled] = 0 )
+		formatString: "฿"#,0
+		displayFolder: Customer 360
+		lineageTag: e28e5c42-9cd7-4e79-8356-fbcb9df9c68b
+
+	measure 'Contract Value ex VAT (any status)' =
+			
+			CALCULATE ( SUMX ( 'gold dim_research_contract', DIVIDE ( 'gold dim_research_contract'[contract_value_thb], 1.07 ) ), REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[is_cancelled] = 0 )
+		formatString: "฿"#,0
+		displayFolder: Customer 360
+		lineageTag: 2dc64d47-ea12-4644-9dfe-020c2e19f0b2
+
+	measure 'Service Invoices 12m' =
+			
+			COALESCE ( [Invoices (12m)], 0 )
+		formatString: #,0
+		displayFolder: Customer 360
+		lineageTag: 3c37748c-e0fc-49e8-a025-242663c08951
+
+	measure 'Research Segment (card)' =
+			
+			COALESCE ( [Research Segment (as of)], "--" )
+		displayFolder: Customer 360
+		lineageTag: 5bc7b745-de93-4a2d-8600-9cb03fea1bae
+
+	measure 'Research Contracts (card)' =
+			
+			-- all non-cancelled contracts of the customer, any class (client / grant / PMU / social); same rows as the Research Contracts table
+			COALESCE ( CALCULATE ( COUNTROWS ( 'gold dim_research_contract' ), REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[is_cancelled] = 0 ), 0 )
+		formatString: #,0
+		displayFolder: Customer 360
+		lineageTag: ebc9f48a-d2af-405c-aa0d-3ab818fce960
+
+	measure 'Research Contract Value (card)' =
+			
+			-- all non-cancelled contracts, any class (was client-only: PMU / grant agencies showed 0)
+			COALESCE ( [Contract Value ex VAT (any status)], 0 )
+		formatString: "฿"#,0
+		displayFolder: Customer 360
+		lineageTag: 9465b5bb-0942-447e-a356-c60516d00d5e
+
+	measure 'Research Recognised (card)' =
+			
+			COALESCE ( [Research Revenue Recognised Lifetime], 0 )
+		formatString: "฿"#,0
+		displayFolder: Customer 360
+		lineageTag: 3b36974c-60bc-456f-8f71-6438e55d8561
+
+	measure 'Tenure (years)' =
+			
+			-- months from first purchase to the as-of month, in years
+			DIVIDE ( [Tenure (months)], 12 )
+		formatString: 0.0
+		displayFolder: Customer 360
+		lineageTag: e21e080e-9ce1-4f1a-83f2-ecc344b9eef0
+
+	column Column
+		formatString: 0
+		lineageTag: 7e63e547-0ea4-4ad0-9379-6459ea2c4802
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure_exec = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 1c9180a1ae644022ba8668650ef12eb6
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

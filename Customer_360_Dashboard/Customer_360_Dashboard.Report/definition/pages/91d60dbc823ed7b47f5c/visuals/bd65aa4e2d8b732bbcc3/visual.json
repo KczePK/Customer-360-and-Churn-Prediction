@@ -1,0 +1,105 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bd65aa4e2d8b732bbcc3",
+  "position": {
+    "x": 966.94581280788168,
+    "y": 125.02463054187191,
+    "z": 11000,
+    "height": 62.512315270935957,
+    "width": 180.88669950738915,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Research Active Customers"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Research Active Customers",
+              "nativeQueryRef": "Research: Active this FY",
+              "displayName": "Research: Active this FY",
+              "format": "#,0"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_customer_flow"
+                  }
+                },
+                "Property": "Research Active Customers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_customer_flow.Active Customers This FY"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

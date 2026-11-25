@@ -1,0 +1,39 @@
+table 'Customer Bridge Step'
+	lineageTag: 17173cfd-2d91-4a38-9b28-f391504d60b9
+
+	column step
+		dataType: string
+		lineageTag: c2ad427e-8130-4ed2-b5e5-7823c57b5ca1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [step]
+		sortByColumn: step_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column step_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: a47cf500-1001-48c3-8c27-b1cec1f624b4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [step_sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Bridge Step' = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "step", STRING, "step_sort", INTEGER,
+				    {
+				        { "Active last FY", 1 },
+				        { "Churned", 2 },
+				        { "New", 3 },
+				        { "Returning", 4 }
+				    }
+				)
+
+	annotation PBI_Id = d1261fdc80564232b4ab88be9ed3f51c
+

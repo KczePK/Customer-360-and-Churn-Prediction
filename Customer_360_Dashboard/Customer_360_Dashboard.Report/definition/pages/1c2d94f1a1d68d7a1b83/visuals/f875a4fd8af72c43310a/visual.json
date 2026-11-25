@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "f875a4fd8af72c43310a",
+  "position": {
+    "x": 1099.9507389162561,
+    "y": 107.73399014778325,
+    "z": 8000,
+    "height": 121.03448275862068,
+    "width": 202.16748768472905,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_org"
+                    }
+                  },
+                  "Property": "Org Share of Total Revenue"
+                }
+              },
+              "queryRef": "_measure_org.Org Share of Total Revenue",
+              "nativeQueryRef": "Share of Total Revenue",
+              "displayName": "Share of Total Revenue",
+              "format": "0.0%"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

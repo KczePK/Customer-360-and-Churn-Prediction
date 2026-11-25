@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "e5882590d21e096580c5",
+  "position": {
+    "x": 746.41638225255963,
+    "y": 18.430034129692832,
+    "z": 25000,
+    "height": 85.699658703071663,
+    "width": 691.12627986348116,
+    "tabOrder": 25000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Customer 360 Analysis",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "42pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

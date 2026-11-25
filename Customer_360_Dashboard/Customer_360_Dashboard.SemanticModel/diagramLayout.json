@@ -1,0 +1,371 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 1300.1220628678411
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1221.905512114613,
+            "y": 5129.8317297717185
+          },
+          "nodeIndex": "gold fact_customer_rfm_monthly",
+          "nodeLineageTag": "4ab6e3d0-7049-4417-82ce-8ee9efc7db9b",
+          "size": {
+            "height": 861.963992742317,
+            "width": 325.60665457052835
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1254.9750463249225,
+            "y": 6027.2194389531433
+          },
+          "nodeIndex": "gold fact_revenue_line",
+          "nodeLineageTag": "b29aee6d-1054-47a5-8bb0-5aed57e61841",
+          "size": {
+            "height": 547,
+            "width": 266.41466238649468
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1800.1731123936845,
+            "y": 6478.9738189919944
+          },
+          "nodeIndex": "gold dim_date",
+          "nodeLineageTag": "38088904-b40f-491a-b8df-daecc4018f23",
+          "size": {
+            "height": 698.84128066860751,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 478.05076287464556,
+            "y": 5220.8155852939271
+          },
+          "nodeIndex": "silver dim_customer",
+          "nodeLineageTag": "cd2576dc-30fc-4d9a-9a8c-7e1a46524f18",
+          "size": {
+            "height": 574.81996371158471,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 808.25391488991386,
+            "y": 4830.0381862663089
+          },
+          "nodeIndex": "gold dim_profit_center",
+          "nodeLineageTag": "e0f32403-b154-4994-b08a-1c990f49400f",
+          "size": {
+            "height": 300,
+            "width": 259.82085895878174
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1306.5430113192319,
+            "y": 4676.1759799073989
+          },
+          "nodeIndex": "gold dim_segment",
+          "nodeLineageTag": "712821fe-4d26-4b1f-a93a-ba97a767bbb8",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 791.74163383429345,
+            "y": 4040.082371528486
+          },
+          "nodeIndex": "_measure",
+          "nodeLineageTag": "10d00bc8-010b-4875-9dfc-e614c0016fde",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 791.46291751062211,
+            "y": 3823.0543836432075
+          },
+          "nodeIndex": "_helper",
+          "nodeLineageTag": "517be88b-e828-458c-be85-78b9fbec21ef",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 794.18858862524121,
+            "y": 4258.7093683201238
+          },
+          "nodeIndex": "_measure_customer_flow",
+          "nodeLineageTag": "5ea379a3-14a1-4a62-8b51-3e66b43b549b",
+          "size": {
+            "height": 200,
+            "width": 274.8383304428105
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 1066.9769738262878,
+            "y": 4038.6474925692946
+          },
+          "nodeIndex": "_measure_segment",
+          "nodeLineageTag": "144d14f2-1e38-49d2-97f2-025675661aa9",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1815.5126375589311,
+            "y": 8266.1441249931431
+          },
+          "nodeIndex": "gold dim_research_contract",
+          "nodeLineageTag": "5f862fcf-01d2-4def-bcff-036c69134716",
+          "size": {
+            "height": 1000,
+            "width": 413.47042695467371
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 2758.0557213721422,
+            "y": 8461.22984947958
+          },
+          "nodeIndex": "gold dim_research_segment",
+          "nodeLineageTag": "293ff0e8-d51c-419b-8a54-6f520762d9b9",
+          "size": {
+            "height": 248,
+            "width": 309.39773557951867
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1235.9314354151963,
+            "y": 7254.4153462176582
+          },
+          "nodeIndex": "gold fact_contract_revenue",
+          "nodeLineageTag": "adfb701e-1253-4bba-890e-7a7a81aaf99d",
+          "size": {
+            "height": 1000,
+            "width": 289.75622487185615
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 1147.6389888645954,
+            "y": 8543.7464657934361
+          },
+          "nodeIndex": "gold fact_research_customer_monthly",
+          "nodeLineageTag": "06dfdeb3-a390-42b7-8474-a3dcab6df0e1",
+          "size": {
+            "height": 1000,
+            "width": 430.69597114777434
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2702.2640697660891,
+            "y": 6247.7687641515649
+          },
+          "nodeIndex": "_research_measure",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2702.2640697660891,
+            "y": 6079.9529338681878
+          },
+          "nodeIndex": "Revenue Source",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2702.2640697660891,
+            "y": 5778.22918844312
+          },
+          "nodeIndex": "_measure_exec",
+          "nodeLineageTag": "900800ac-d492-4d6a-af61-bc2e508837c4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2986.2640697660891,
+            "y": 5864.22918844312
+          },
+          "nodeIndex": "Revenue Bridge Step",
+          "nodeLineageTag": "ce8bfe3d-9f56-432d-bab9-bd254a37f9b9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3270.2640697660891,
+            "y": 5852.22918844312
+          },
+          "nodeIndex": "Service Type",
+          "nodeLineageTag": "84f9a596-dee0-4f73-84d6-1cee1631787b",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3360.2133068914436,
+            "y": 5400.6435703055195
+          },
+          "nodeIndex": "_measure_v2",
+          "nodeLineageTag": "ff025377-5096-444e-9c95-c8f95c0363f9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3644.2133068914436,
+            "y": 5462.6435703055195
+          },
+          "nodeIndex": "Cohort Year",
+          "nodeLineageTag": "98b51454-a841-416b-960c-6e8dd6e513ff",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3928.2133068914436,
+            "y": 5486.6435703055195
+          },
+          "nodeIndex": "Customer Bridge Step",
+          "nodeLineageTag": "17173cfd-2d91-4a38-9b28-f391504d60b9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4496.2133068914436,
+            "y": 5450.6435703055195
+          },
+          "nodeIndex": "Pareto Bucket",
+          "nodeLineageTag": "9a1aa489-430e-4053-9b14-bbf819e08481",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4780.2133068914436,
+            "y": 5486.6435703055195
+          },
+          "nodeIndex": "Industry Source",
+          "nodeLineageTag": "f56491bf-6ccf-44b8-a243-e607297c6b7f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4586.1625440167982,
+            "y": 4834.2651430991182
+          },
+          "nodeIndex": "_measure_org",
+          "nodeLineageTag": "bc362be7-f385-4ed8-bb4b-f906a557ecc8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4586.1625440167982,
+            "y": 3984.6975022895167
+          },
+          "nodeIndex": "_measure_churn",
+          "nodeLineageTag": "d71b1e9f-0296-4294-8b98-6e11e9621f20",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4870.1625440167982,
+            "y": 3984.6975022895167
+          },
+          "nodeIndex": "gold churn_score",
+          "nodeLineageTag": "6f32a4ff-213a-4b02-b7e8-6aa401994ec0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 55.599173134922644,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

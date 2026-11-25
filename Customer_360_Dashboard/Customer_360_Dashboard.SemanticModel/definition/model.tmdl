@@ -1,0 +1,45 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["gold fact_customer_rfm_monthly","gold fact_revenue_line","gold dim_date","silver dim_customer","gold dim_profit_center","gold dim_segment","gold dim_research_contract","gold dim_research_segment","gold fact_contract_revenue","gold fact_research_customer_monthly","gold churn_score"]
+
+ref table 'gold fact_customer_rfm_monthly'
+ref table 'gold fact_revenue_line'
+ref table 'gold dim_date'
+ref table 'silver dim_customer'
+ref table 'gold dim_profit_center'
+ref table 'gold dim_segment'
+ref table _measure
+ref table _helper
+ref table _measure_customer_flow
+ref table _measure_segment
+ref table 'gold dim_research_contract'
+ref table 'gold dim_research_segment'
+ref table 'gold fact_contract_revenue'
+ref table 'gold fact_research_customer_monthly'
+ref table _research_measure
+ref table 'Revenue Source'
+ref table _measure_exec
+ref table 'Revenue Bridge Step'
+ref table 'Service Type'
+ref table _measure_v2
+ref table 'Pareto Bucket'
+ref table 'Customer Bridge Step'
+ref table 'Cohort Year'
+ref table 'Industry Source'
+ref table _measure_org
+ref table 'gold churn_score'
+ref table _measure_churn
+
+ref cultureInfo en-US
+

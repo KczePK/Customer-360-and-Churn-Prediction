@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "ch_card0000000000004",
+  "position": {
+    "x": 1528,
+    "y": 104,
+    "z": 5000,
+    "height": 104,
+    "width": 364,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_churn"
+                    }
+                  },
+                  "Property": "Revenue at Risk (12m)"
+                }
+              },
+              "queryRef": "_measure_churn.Revenue at Risk (12m)",
+              "nativeQueryRef": "Revenue at Risk (12m)",
+              "displayName": "Revenue at Risk (12m)",
+              "format": "\"฿\"#,0"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

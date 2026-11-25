@@ -1,0 +1,21 @@
+table 'Pareto Bucket'
+	lineageTag: 9a1aa489-430e-4053-9b14-bbf819e08481
+
+	column pct_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ee2d32d-2a13-4ac5-82dd-0674927b5a29
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [pct_customers]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Pareto Bucket' = calculated
+		mode: import
+		source =
+				
+				SELECTCOLUMNS ( GENERATESERIES ( 5, 100, 5 ), "pct_customers", [Value] )
+
+	annotation PBI_Id = e8b6bce33aa343edaeca9aec819f4771
+

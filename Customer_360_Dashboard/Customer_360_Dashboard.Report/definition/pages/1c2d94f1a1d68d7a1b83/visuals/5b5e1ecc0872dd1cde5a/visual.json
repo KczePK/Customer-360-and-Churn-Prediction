@@ -1,0 +1,357 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "5b5e1ecc0872dd1cde5a",
+  "position": {
+    "x": 1282,
+    "y": 240,
+    "z": 13000,
+    "height": 410,
+    "width": 630,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_date"
+                    }
+                  },
+                  "Property": "fiscal_year_be"
+                }
+              },
+              "queryRef": "gold dim_date.fiscal_year_be",
+              "nativeQueryRef": "Fiscal Year",
+              "active": true,
+              "displayName": "Fiscal Year"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Trend: Services Active"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Trend: Services Active",
+              "nativeQueryRef": "Active this FY",
+              "displayName": "Active this FY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Trend: Services Retention %"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Trend: Services Retention %",
+              "nativeQueryRef": "Retention",
+              "displayName": "Retention"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Trend: Services Retained"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Trend: Services Retained",
+              "nativeQueryRef": "Retained Customers",
+              "displayName": "Retained Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Trend: Services New"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Trend: Services New",
+              "nativeQueryRef": "New Customers",
+              "displayName": "New Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Trend: Services Returning"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Trend: Services Returning",
+              "nativeQueryRef": "Returning Customers",
+              "displayName": "Returning Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Trend: Services Churned (-)"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Trend: Services Churned (-)",
+              "nativeQueryRef": "Churned Customers (-)",
+              "displayName": "Churned Customers (-)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold dim_date"
+                  }
+                },
+                "Property": "fiscal_year_be"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Categorical'"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Services – Customer Flow by Fiscal Year'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ลูกค้าใหม่ = ใหม่สำหรับองค์กร (ไม่ใช่ใหม่สำหรับศูนย์)'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9412d3e03fe4f8a8640b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold dim_date"
+              }
+            },
+            "Property": "fiscal_year_be"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "gold dim_date",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "fiscal_year_be"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "2560L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

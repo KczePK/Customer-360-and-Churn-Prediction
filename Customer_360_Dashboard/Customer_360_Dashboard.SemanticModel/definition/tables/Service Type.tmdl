@@ -1,0 +1,53 @@
+table 'Service Type'
+	lineageTag: 84f9a596-dee0-4f73-84d6-1cee1631787b
+
+	column gl_account
+		lineageTag: c3c9f04d-05a9-4c52-ab92-ad890207fb9c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [gl_account]
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_type
+		lineageTag: 463b1d62-5361-4f9a-9b5d-f115e00ff6b2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [service_type]
+		sortByColumn: service_type_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_type_sort
+		formatString: 0
+		lineageTag: 578983e0-6f0d-4975-a5b4-3e5ba01d1d5f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [service_type_sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Service Type' = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "gl_account", STRING, "service_type", STRING, "service_type_sort", INTEGER,
+				    {
+				        { "4020001", "บริการวิเคราะห์ทดสอบ", 1 },
+				        { "4020002", "ตรวจรับรองผลิตภัณฑ์", 2 },
+				        { "4020003", "ขายผลิตภัณฑ์", 3 },
+				        { "4020004", "ลิขสิทธิ์ สิทธิประโยชน์ของงานวิจัย", 4 },
+				        { "4020005", "โฆษณาและประชาสัมพันธ์", 5 },
+				        { "4020006", "ขายหนังสือและวารสาร", 6 },
+				        { "4020007", "ขายวารสารวิทยาศาสตร์ฯ", 7 },
+				        { "4020008", "สัมนาและฝึกอบรม", 8 },
+				        { "4020009", "บำรุงสถานีวิจัยส่วนภูมิภาค", 9 },
+				        { "4020010", "สมาชิกกลุ่มบริการ", 10 },
+				        { "4020011", "สมาชิกศูนย์บรรจุหีบห่อไทย", 11 },
+				        { "4020012", "โครงการค่ายวิทยาศาสตร์", 12 }
+				    }
+				)
+
+	annotation PBI_Id = e7655df45d044cb68086b84eb7e69986
+

@@ -1,0 +1,70 @@
+table 'Cohort Year'
+	lineageTag: 98b51454-a841-416b-960c-6e8dd6e513ff
+
+	column cohort_fy
+		dataType: int64
+		formatString: 0
+		lineageTag: 80156370-c0ab-457a-8db7-052d00ce6633
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [cohort_fy]
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: fe480279-269a-4769-875b-43716a50153c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [fiscal_year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column years_since_first
+		dataType: int64
+		formatString: 0
+		lineageTag: b4829f38-204d-4c57-98b6-a72f1235f385
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [years_since_first]
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: ff2c416a-8076-4ace-9711-8c0a61d10fc9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [active_customers]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cohort Year' = calculated
+		mode: import
+		source =
+				
+				-- distinct customers with a purchase document per (first-purchase FY, FY)
+				VAR cf =
+				    SUMMARIZE (
+				        FILTER ( 'gold fact_revenue_line', 'gold fact_revenue_line'[is_purchase_doc] = 1 ),
+				        'gold fact_revenue_line'[enterprise_id],
+				        'gold fact_revenue_line'[fiscal_year_be]
+				    )
+				VAR fst =
+				    GROUPBY ( cf, 'gold fact_revenue_line'[enterprise_id], "first_fy", MINX ( CURRENTGROUP (), 'gold fact_revenue_line'[fiscal_year_be] ) )
+				VAR j = NATURALINNERJOIN ( cf, fst )
+				VAR grp =
+				    GROUPBY ( j, [first_fy], 'gold fact_revenue_line'[fiscal_year_be], "n", SUMX ( CURRENTGROUP (), 1 ) )
+				RETURN
+				    SELECTCOLUMNS (
+				        grp,
+				        "cohort_fy", [first_fy],
+				        "fiscal_year", 'gold fact_revenue_line'[fiscal_year_be],
+				        "years_since_first", 'gold fact_revenue_line'[fiscal_year_be] - [first_fy],
+				        "active_customers", [n]
+				    )
+
+	annotation PBI_Id = 07924ec4bddf49aab51e03074e54125f
+

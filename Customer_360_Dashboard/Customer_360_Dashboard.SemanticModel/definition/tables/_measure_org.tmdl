@@ -1,0 +1,82 @@
+table _measure_org
+	lineageTag: bc362be7-f385-4ed8-bb4b-f906a557ecc8
+
+	measure 'Org Selected Centre' =
+			-- page header: centre short name (กลุ่ม short name); the whole organisation when no centre is picked
+			VAR c = SELECTEDVALUE ( 'gold dim_profit_center'[ศูนย์/สำนัก (ย่อ)] )
+			VAR g = SELECTEDVALUE ( 'gold dim_profit_center'[กลุ่ม (ย่อ)] )
+			RETURN
+			    IF (
+			        ISFILTERED ( 'gold dim_profit_center'[ศูนย์/สำนัก (ย่อ)] ),
+			        COALESCE ( c, "หลายศูนย์/สำนัก" ) & IF ( NOT ISBLANK ( g ) && NOT ISBLANK ( c ) && NOT CONTAINSSTRING ( c, "(ส่วนกลาง)" ), " (" & g & ")" ),
+			        "ทุกศูนย์/สำนัก"
+			    )
+		displayFolder: Org Center
+		lineageTag: 35c56f9d-e8cc-4a19-b0fb-ba3b82f5cad0
+
+	measure 'Org Share of Total Revenue' =
+			-- centre realized revenue / organisation realized revenue, same fiscal year
+			DIVIDE ( [Realized Revenue], CALCULATE ( [Realized Revenue], REMOVEFILTERS ( 'gold dim_profit_center' ) ) )
+		formatString: 0.0%
+		displayFolder: Org Center
+		lineageTag: f004b99b-1bda-42f6-a829-e64567329e57
+
+	measure 'Org Client Revenue' =
+			-- paying clients only: service revenue (402) + commercial research from clients (5X/6X/8X); PMU (7X) left out because the payer is a funder
+			[Service Revenue] + [Commercial Contract Revenue (client)]
+		formatString: "฿"#,0
+		displayFolder: Org Center
+		lineageTag: e2c9f6c7-e9a3-4ab3-a8a3-5b093dde2d5c
+
+	measure 'Org TSIC Share (centre)' =
+			-- share of the centre's client revenue in this TSIC item (any drill level: section, division, group, class, activity); denominator = all customers incl. ไม่ระบุ, excl. revenue with no customer
+			DIVIDE (
+			    [Org Client Revenue],
+			    CALCULATE ( [Org Client Revenue], ALLNOBLANKROW ( 'silver dim_customer' ) )
+			)
+		formatString: 0.0%
+		displayFolder: Org Center
+		lineageTag: 435b355e-3b82-4d33-9311-afc9cec19c25
+
+	measure 'Org TSIC Share (Total)' =
+			-- same share for the organisation as a whole (centre filter removed), for comparison
+			DIVIDE (
+			    CALCULATE ( [Org Client Revenue], REMOVEFILTERS ( 'gold dim_profit_center' ) ),
+			    CALCULATE ( [Org Client Revenue], REMOVEFILTERS ( 'gold dim_profit_center' ), ALLNOBLANKROW ( 'silver dim_customer' ) )
+			)
+		formatString: 0.0%
+		displayFolder: Org Center
+		lineageTag: 4c772767-9a61-45a2-b196-4d05121edafb
+
+	measure 'Org Revenue Share in Centre' =
+			-- customer's share of the centre's realized revenue; denominator clears every customer column (name, id) but keeps revenue with no customer out
+			DIVIDE (
+			    [Realized Revenue],
+			    CALCULATE ( [Realized Revenue], ALLNOBLANKROW ( 'silver dim_customer' ) )
+			)
+		formatString: 0.0%
+		displayFolder: Org Center
+		lineageTag: 86ea4919-8931-444c-8012-069a8846480d
+
+	measure 'Org TSIC Subtitle' = "บริการ + วิจัยลูกค้า (ไม่รวม PMU) · ไม่รวมประเภทธุรกิจที่ยัง blank "
+		displayFolder: Org Center
+		lineageTag: ead17a7f-6106-498d-a089-2769ee9a9179
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 0727e926-726c-44b7-8524-d0484ad7c757
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure_org = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 9732549d35c6463bb76c67e90b3ecb93
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

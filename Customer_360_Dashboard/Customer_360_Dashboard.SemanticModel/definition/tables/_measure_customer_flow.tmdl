@@ -1,0 +1,536 @@
+table _measure_customer_flow
+	lineageTag: 5ea379a3-14a1-4a62-8b51-3e66b43b549b
+
+	measure 'Active Customers (services)' =
+			
+			-- customers with a purchase document in the selected fiscal year(s); follows org slicer
+			IF (
+			    NOT ISEMPTY ( CALCULATETABLE ( 'gold fact_revenue_line', REMOVEFILTERS ( 'gold dim_date' ) ) ),
+			    CALCULATE (
+			        DISTINCTCOUNT ( 'gold fact_revenue_line'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        VALUES ( 'gold dim_date'[fiscal_year_be] ),
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    ) + 0
+			)
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: cc7a2cc3-b2a7-4182-b38d-cfd552d222e6
+
+	measure 'New Customers' =
+			
+			-- Customer flow by fiscal year, from purchase documents in fact_revenue_line
+			-- (same rule as active_this_month in fact_customer_rfm_monthly).
+			-- The current-year set keeps org / customer filters, the history sets ignore them,
+			-- so "new" means new to the organisation, not new to that centre (same as phase 2).
+			VAR y = [As-of Fiscal Year]
+			VAR NowSet =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold dim_date'[fiscal_year_be] = y,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			VAR BeforeSet =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        ALL (),
+			        'gold dim_date'[fiscal_year_be] < y,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			RETURN
+			    IF ( NOT ISEMPTY ( CALCULATETABLE ( 'gold fact_revenue_line', REMOVEFILTERS ( 'gold dim_date' ) ) ), COUNTROWS ( EXCEPT ( NowSet, BeforeSet ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: bb246b81-854b-4be5-8780-1364b08f6b58
+
+	measure 'Retained Customers' =
+			
+			-- active this FY and also active last FY (anywhere in the organisation)
+			VAR y = [As-of Fiscal Year]
+			VAR NowSet =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold dim_date'[fiscal_year_be] = y,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			VAR PrevAll =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        ALL (),
+			        'gold dim_date'[fiscal_year_be] = y - 1,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			RETURN
+			    IF ( NOT ISEMPTY ( CALCULATETABLE ( 'gold fact_revenue_line', REMOVEFILTERS ( 'gold dim_date' ) ) ), COUNTROWS ( INTERSECT ( NowSet, PrevAll ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: 6f13853a-0ad4-48a7-a991-908fa8815e6f
+
+	measure 'Churned Customers' =
+			
+			-- active last FY (in the filtered org), not active anywhere this FY
+			VAR y = [As-of Fiscal Year]
+			VAR PrevSet =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold dim_date'[fiscal_year_be] = y - 1,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			VAR NowAll =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        ALL (),
+			        'gold dim_date'[fiscal_year_be] = y,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			RETURN
+			    IF ( NOT ISEMPTY ( CALCULATETABLE ( 'gold fact_revenue_line', REMOVEFILTERS ( 'gold dim_date' ) ) ), COUNTROWS ( EXCEPT ( PrevSet, NowAll ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: 92a83988-587b-44d4-811d-8885d53c60ff
+
+	measure 'Retention Rate %' =
+			
+			DIVIDE (
+			    [Active Customers Last FY] - [Churned Customers],
+			    [Active Customers Last FY]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Customer flow
+		lineageTag: a1a324f9-054a-426c-9cb0-27f1a2940639
+
+	measure 'Active Customers Last FY' =
+			
+			VAR y = [As-of Fiscal Year]
+			VAR PrevSet =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold dim_date'[fiscal_year_be] = y - 1,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			RETURN
+			    IF ( NOT ISEMPTY ( CALCULATETABLE ( 'gold fact_revenue_line', REMOVEFILTERS ( 'gold dim_date' ) ) ), COUNTROWS ( PrevSet ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: 94a2f6be-e3b1-4dd2-bb6d-c37bc21c19c6
+
+	measure 'Returning Customers' =
+			
+			-- active this FY, not active last FY, but active in an earlier FY (came back)
+			VAR y = [As-of Fiscal Year]
+			VAR NowSet =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold dim_date'[fiscal_year_be] = y,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			VAR PrevAll =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        ALL (),
+			        'gold dim_date'[fiscal_year_be] = y - 1,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			VAR OlderAll =
+			    CALCULATETABLE (
+			        VALUES ( 'gold fact_revenue_line'[enterprise_id] ),
+			        ALL (),
+			        'gold dim_date'[fiscal_year_be] < y - 1,
+			        'gold fact_revenue_line'[is_purchase_doc] = 1
+			    )
+			RETURN
+			    IF ( NOT ISEMPTY ( CALCULATETABLE ( 'gold fact_revenue_line', REMOVEFILTERS ( 'gold dim_date' ) ) ), COUNTROWS ( INTERSECT ( EXCEPT ( NowSet, PrevAll ), OlderAll ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: 6d385422-a496-4195-9910-811c0063d6cc
+
+	measure 'Churned Customers (-)' =
+			
+			-- negative, for the diverging lifecycle bar charts
+			-1 * [Churned Customers]
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: 02fe8381-18a6-4035-b7f6-ad05737a5434
+
+	measure 'Research Flow FY' =
+			
+			-- fiscal year (BE) of the research as-of month; follows the Fiscal Year slicer
+			VAR rk = [Research As-of Month Key]
+			RETURN
+			    IF ( NOT ISBLANK ( rk ),
+			        CALCULATE ( MAX ( 'gold dim_date'[fiscal_year_be] ), ALL ( 'gold dim_date' ), 'gold dim_date'[date_key] = rk ) )
+		formatString: 0
+		isHidden
+		displayFolder: Customer flow (research)
+		lineageTag: 009ea72e-ac21-4218-b5fa-cc92378b66aa
+
+	measure 'Research Active Customers' =
+			
+			-- research customers active (signed or running) in the selected FY
+			VAR y = [Research Flow FY]
+			VAR fs = DATE ( y - 544, 10, 1 )      -- FY start (1 Oct), fiscal_year_be is Buddhist era
+			VAR fe = DATE ( y - 543, 9, 30 )      -- FY end (30 Sep)
+			VAR ps = DATE ( y - 545, 10, 1 )      -- last FY start
+			VAR pe = DATE ( y - 544, 9, 30 )      -- last FY end
+			RETURN
+			    IF ( NOT ISBLANK ( y ) && NOT ISEMPTY ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[in_client_rfm] = 1 ) ),
+			        COUNTROWS ( DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ) ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= fe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= fs ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 07ce5ffc-4665-4466-9556-f4dd8cfc5a77
+
+	measure 'Research Active Customers Last FY' =
+			
+			-- research customers active (signed or running) in the FY before
+			VAR y = [Research Flow FY]
+			VAR fs = DATE ( y - 544, 10, 1 )      -- FY start (1 Oct), fiscal_year_be is Buddhist era
+			VAR fe = DATE ( y - 543, 9, 30 )      -- FY end (30 Sep)
+			VAR ps = DATE ( y - 545, 10, 1 )      -- last FY start
+			VAR pe = DATE ( y - 544, 9, 30 )      -- last FY end
+			RETURN
+			    IF ( NOT ISBLANK ( y ) && NOT ISEMPTY ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[in_client_rfm] = 1 ) ),
+			        COUNTROWS ( DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ) ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= pe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= ps ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 9b7b7776-a0e8-47d7-89e9-a5e880f485ff
+
+	measure 'Research New Customers' =
+			
+			-- Research customer flow by fiscal year. Active in a FY = had a client contract (in_client_rfm = 1)
+			-- signed in the FY or still running in it (end = valid_to, else last revenue month, else sign date; same as r04).
+			-- Current-year set keeps centre / customer filters, history sets ignore them (new = new to the organisation), same as services.
+			-- new = active this FY, no client contract signed before this FY (first signing is this FY)
+			VAR y = [Research Flow FY]
+			VAR fs = DATE ( y - 544, 10, 1 )      -- FY start (1 Oct), fiscal_year_be is Buddhist era
+			VAR fe = DATE ( y - 543, 9, 30 )      -- FY end (30 Sep)
+			VAR ps = DATE ( y - 545, 10, 1 )      -- last FY start
+			VAR pe = DATE ( y - 544, 9, 30 )      -- last FY end
+			VAR NowSet = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ) ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= fe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= fs ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			VAR BeforeSet = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( ALL ( 'gold dim_research_contract' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= fs - 1
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= DATE ( 1900, 1, 1 ) ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			RETURN
+			    IF ( NOT ISBLANK ( y ) && NOT ISEMPTY ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[in_client_rfm] = 1 ) ), COUNTROWS ( EXCEPT ( NowSet, BeforeSet ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 9a1899c7-a68b-44b2-9f8e-c25e31f241b5
+
+	measure 'Research Retained Customers' =
+			
+			-- active this FY and also active last FY (anywhere in the organisation)
+			VAR y = [Research Flow FY]
+			VAR fs = DATE ( y - 544, 10, 1 )      -- FY start (1 Oct), fiscal_year_be is Buddhist era
+			VAR fe = DATE ( y - 543, 9, 30 )      -- FY end (30 Sep)
+			VAR ps = DATE ( y - 545, 10, 1 )      -- last FY start
+			VAR pe = DATE ( y - 544, 9, 30 )      -- last FY end
+			VAR NowSet = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ) ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= fe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= fs ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			VAR PrevAll = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( ALL ( 'gold dim_research_contract' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= pe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= ps ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			RETURN
+			    IF ( NOT ISBLANK ( y ) && NOT ISEMPTY ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[in_client_rfm] = 1 ) ), COUNTROWS ( INTERSECT ( NowSet, PrevAll ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 7663f727-5692-436b-8e6a-b0e4e2fde01a
+
+	measure 'Research Returning Customers' =
+			
+			-- active this FY, not active last FY, but signed a contract before last FY (came back)
+			VAR y = [Research Flow FY]
+			VAR fs = DATE ( y - 544, 10, 1 )      -- FY start (1 Oct), fiscal_year_be is Buddhist era
+			VAR fe = DATE ( y - 543, 9, 30 )      -- FY end (30 Sep)
+			VAR ps = DATE ( y - 545, 10, 1 )      -- last FY start
+			VAR pe = DATE ( y - 544, 9, 30 )      -- last FY end
+			VAR NowSet = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ) ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= fe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= fs ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			VAR PrevAll = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( ALL ( 'gold dim_research_contract' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= pe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= ps ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			VAR OlderAll = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( ALL ( 'gold dim_research_contract' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= ps - 1
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= DATE ( 1900, 1, 1 ) ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			RETURN
+			    IF ( NOT ISBLANK ( y ) && NOT ISEMPTY ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[in_client_rfm] = 1 ) ), COUNTROWS ( INTERSECT ( EXCEPT ( NowSet, PrevAll ), OlderAll ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 77c164b2-c5fc-414d-a526-ad8da2d606bd
+
+	measure 'Research Churned Customers' =
+			
+			-- active last FY (in the filtered centre), not active anywhere this FY (no new signing, nothing running)
+			VAR y = [Research Flow FY]
+			VAR fs = DATE ( y - 544, 10, 1 )      -- FY start (1 Oct), fiscal_year_be is Buddhist era
+			VAR fe = DATE ( y - 543, 9, 30 )      -- FY end (30 Sep)
+			VAR ps = DATE ( y - 545, 10, 1 )      -- last FY start
+			VAR pe = DATE ( y - 544, 9, 30 )      -- last FY end
+			VAR PrevSet = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ) ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= pe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= ps ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			VAR NowAll = DISTINCT ( SELECTCOLUMNS (
+			        FILTER ( ALL ( 'gold dim_research_contract' ),
+			            'gold dim_research_contract'[in_client_rfm] = 1 && 'gold dim_research_contract'[enterprise_id] <> ""
+			            && 'gold dim_research_contract'[sign_date] <= fe
+			            && MAX ( 'gold dim_research_contract'[sign_date], COALESCE ( 'gold dim_research_contract'[valid_to], 'gold dim_research_contract'[last_revenue_month], 'gold dim_research_contract'[sign_date] ) ) >= fs ),
+			        "eid", 'gold dim_research_contract'[enterprise_id] ) )
+			RETURN
+			    IF ( NOT ISBLANK ( y ) && NOT ISEMPTY ( CALCULATETABLE ( 'gold dim_research_contract', REMOVEFILTERS ( 'gold dim_date' ), 'gold dim_research_contract'[in_client_rfm] = 1 ) ), COUNTROWS ( EXCEPT ( PrevSet, NowAll ) ) + 0 )
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 3b4de676-5d8d-4be8-ad86-65de63fc96f6
+
+	measure 'Research Churned Customers (-)' =
+			
+			-- negative, for the diverging lifecycle bar chart
+			-1 * [Research Churned Customers]
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 4cbebe19-e399-4b34-a367-1a93620766a6
+
+	measure 'Research Customer Bridge Value' =
+			
+			-- waterfall: active last FY - churned + new + returning = active this FY (research, organisation-wide)
+			SWITCH (
+			    SELECTEDVALUE ( 'Customer Bridge Step'[step_sort] ),
+			    1, [Research Active Customers Last FY],
+			    2, - [Research Churned Customers],
+			    3, [Research New Customers],
+			    4, [Research Returning Customers]
+			)
+		formatString: #,0
+		displayFolder: Customer flow (research)
+		lineageTag: 627d8ea4-4b5a-4ab4-a296-b78514e74331
+
+	measure 'Active Customers This FY' =
+			
+			-- services customers active in the as-of FY (= end of the services bridge)
+			VAR y = [As-of Fiscal Year]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( y ),
+			        CALCULATE (
+			            DISTINCTCOUNT ( 'gold fact_revenue_line'[enterprise_id] ),
+			            REMOVEFILTERS ( 'gold dim_date' ),
+			            'gold dim_date'[fiscal_year_be] = y,
+			            'gold fact_revenue_line'[is_purchase_doc] = 1
+			        ) + 0
+			    )
+		formatString: #,0
+		displayFolder: Customer flow
+		lineageTag: b221e940-4bb2-4cb6-87ac-34793a6c3d40
+
+	measure 'Research Retention Rate %' =
+			
+			-- share of last FY's research customers still active (signed or running) this FY
+			DIVIDE (
+			    [Research Active Customers Last FY] - [Research Churned Customers],
+			    [Research Active Customers Last FY]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Customer flow (research)
+		lineageTag: 541c0402-731b-4cb8-b55d-70b65b5d9ea6
+
+	measure 'Trend: Services Retained' =
+			
+			-- for the fiscal-year trend chart: [Retained Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [As-of Fiscal Year] && [Active Customers Last FY] > 0, [Retained Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: fd10593a-ae3e-4a67-b778-1a22aebda75c
+
+	measure 'Trend: Services New' =
+			
+			-- for the fiscal-year trend chart: [New Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [As-of Fiscal Year] && [Active Customers Last FY] > 0, [New Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: f4f804db-4bc7-4bec-92d1-78124045e5ec
+
+	measure 'Trend: Services Returning' =
+			
+			-- for the fiscal-year trend chart: [Returning Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [As-of Fiscal Year] && [Active Customers Last FY] > 0, [Returning Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: 31aa2a86-3630-4507-920d-e367532112e6
+
+	measure 'Trend: Services Churned (-)' =
+			
+			-- for the fiscal-year trend chart: [Churned Customers (-)] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [As-of Fiscal Year] && [Active Customers Last FY] > 0, [Churned Customers (-)] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: 4e1c6450-1878-416d-a11b-22d971603ed9
+
+	measure 'Trend: Services Active' =
+			
+			-- for the fiscal-year trend chart: [Active Customers This FY] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [As-of Fiscal Year] && [Active Customers Last FY] > 0, [Active Customers This FY] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: 0e9432da-c6c0-4bbc-b033-a87dab8c13cc
+
+	measure 'Trend: Services Retention %' =
+			
+			-- for the fiscal-year trend chart: [Retention Rate %] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [As-of Fiscal Year] && [Active Customers Last FY] > 0, [Retention Rate %] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Customer flow trend
+		lineageTag: 97d59e53-1545-4171-9455-93f923dbc51d
+
+	measure 'Trend: Research Retained' =
+			
+			-- for the fiscal-year trend chart: [Research Retained Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [Research Flow FY] && [Research Active Customers Last FY] > 0, [Research Retained Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: b3f2ccd5-d5ee-42e5-928c-46cd9b4c23fa
+
+	measure 'Trend: Research New' =
+			
+			-- for the fiscal-year trend chart: [Research New Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [Research Flow FY] && [Research Active Customers Last FY] > 0, [Research New Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: 8a02210e-6c6b-4f46-bd9f-69f39d8f4f7f
+
+	measure 'Trend: Research Returning' =
+			
+			-- for the fiscal-year trend chart: [Research Returning Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [Research Flow FY] && [Research Active Customers Last FY] > 0, [Research Returning Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: a434832c-283e-49b5-9c48-06fe8535b861
+
+	measure 'Trend: Research Churned (-)' =
+			
+			-- for the fiscal-year trend chart: [Research Churned Customers (-)] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [Research Flow FY] && [Research Active Customers Last FY] > 0, [Research Churned Customers (-)] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: 2714960c-3b94-4b0e-b45a-aee3f9c6f8de
+
+	measure 'Trend: Research Active' =
+			
+			-- for the fiscal-year trend chart: [Research Active Customers] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [Research Flow FY] && [Research Active Customers Last FY] > 0, [Research Active Customers] )
+		formatString: #,0
+		displayFolder: Customer flow trend
+		lineageTag: 27450457-5039-4e7c-9554-f70462e6a303
+
+	measure 'Trend: Research Retention %' =
+			
+			-- for the fiscal-year trend chart: [Research Retention Rate %] for the FY on the axis.
+			-- Blank for years after the latest data month (as-of FY would repeat) and for the
+			-- first year of data (no last FY, so everyone would be "new").
+			VAR fy = MAX ( 'gold dim_date'[fiscal_year_be] )
+			RETURN
+			    IF ( fy = [Research Flow FY] && [Research Active Customers Last FY] > 0, [Research Retention Rate %] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Customer flow trend
+		lineageTag: 0a97dbcb-8210-4718-9d07-389e16c814de
+
+	column Column
+		formatString: 0
+		lineageTag: 2c6aa22e-28d3-4154-9d7a-8a61743a4261
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measure_customer_flow = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 5657c8fb4a4c4d14a40463512eca3445
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

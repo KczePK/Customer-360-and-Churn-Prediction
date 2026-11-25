@@ -1,0 +1,76 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "718bf1f5b705ee13f5cf",
+  "position": {
+    "x": 398.38572364112576,
+    "y": 109.86902423051743,
+    "z": 1000,
+    "height": 56.666666666666671,
+    "width": 225,
+    "tabOrder": 17000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Active Customers (services)"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Active Customers (FY)",
+              "nativeQueryRef": "Active Service Customer",
+              "displayName": "Active Service Customer",
+              "format": "0"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure_customer_flow"
+                  }
+                },
+                "Property": "Active Customers (services)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_customer_flow.Active Customers (FY)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

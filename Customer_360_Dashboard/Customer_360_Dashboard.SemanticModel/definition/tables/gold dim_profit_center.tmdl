@@ -1,0 +1,67 @@
+table 'gold dim_profit_center'
+	lineageTag: e0f32403-b154-4994-b08a-1c990f49400f
+
+	column profit_center
+		dataType: string
+		lineageTag: 47b07e38-e333-4969-bd1b-5ae138caf8cf
+		summarizeBy: none
+		sourceColumn: profit_center
+
+		annotation SummarizationSetBy = Automatic
+
+	column กลุ่ม
+		dataType: string
+		lineageTag: 9db28b9f-2d63-4693-8f3f-684085065bfa
+		summarizeBy: none
+		sourceColumn: กลุ่ม
+
+		annotation SummarizationSetBy = Automatic
+
+	column ศูนย์/สำนัก
+		dataType: string
+		lineageTag: 34b1c67d-101d-4b18-9a89-555dac21c327
+		summarizeBy: none
+		sourceColumn: ศูนย์/สำนัก
+
+		annotation SummarizationSetBy = Automatic
+
+	column หน่วยงาน
+		dataType: string
+		lineageTag: 53fbbd84-4f68-47f3-978e-c112fcd47e3c
+		summarizeBy: none
+		sourceColumn: หน่วยงาน
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'กลุ่ม (ย่อ)'
+		dataType: string
+		lineageTag: b4524aa1-f21c-45e8-86df-e0657b184477
+		summarizeBy: none
+		sourceColumn: กลุ่ม (ย่อ)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ศูนย์/สำนัก (ย่อ)'
+		dataType: string
+		lineageTag: b73edc01-c068-4ceb-ba47-c725304c2371
+		summarizeBy: none
+		sourceColumn: ศูนย์/สำนัก (ย่อ)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold dim_profit_center' = m
+		mode: import
+		source =
+				let
+				  // Sampled + perturbed: fake customers, ids, documents, fund codes, org; amounts x random factor
+				  Data = Text.Combine({
+				    "zVnNjtQwDH6V1ZxA2pFiJ06T487fmftqHwYJCQ68ANxYhEBwQZw6b5NHYaZNWTbrZpx2J7M9fmq/z3Yc22lubxdvHAAsrhehfRvab6Ftw/5DaL9c3XTYj9DuQ/sptPdh//HqBljw6lVof3affe/gnuhPaN+/HiE+EN1dH7TBZbQFWLnyU6wzRFv7MgwhYiOyYQK/0SyYN2WEqNd2rlD71xGJUvcHcIknJCzSuSU8yiOILDghgthro5fvJWTBKYn0hLizxSgstOVxqG9wCYWSSrPu75hPdsRI7qiTHHm/rxhGvrrAghNWd6hWjSvUTpIXxpM3SiDQXAk4IUF8vV9xWFk25l7PMxWLd544l/HksfMrZMHTVq2GnU1yLc2CAq1YwXRBFTEs+AxVxMQqgq7QlqSKmCWUSlqaK4mFko1lI75lPtkiC+YjfiTaxkxqvCvUeuzeFjv3/qd0muZSQkrZ4HNb6ZV/biu9sXMpdUIJWp4KxIKCVIjNDBUVaiXm00OQIyUpufmGBQXmx11D2hVqJeabhwWNlJrkE4Rhwbz5I0S9Nj/+ZrST6cWMTy9DnUG5e5oFJ7gXu0pDrlA7ca8fvXMSysvdQxac4N6wb/mukdFO3MNx9/6V2bOPt6heTutHXb31Y1O99VuUD3aGBQWDXdTyXq4FLCjQimO+yg1uHJZEMhPIkT8o8sajWVDQeIZSpuvFsbF14wiq3qHGNPUONc7U22fIH3HXDO2aK9TrrnAdX18PY5WTMwIL5q3vtGLGeaqo5WZmNxRWCZT7hiwo8C1mt/VyLc2CAq1h8rH11kz5umtmdL01c6remnnIdKwEK5uqtpN/hBWL9/XOyXsvsKCg98bs0+AKtZJDHyxNSkk0lxJSSo9zKXVCadDPpbQppbVzKTGhJKXnUlJCaaneZGedK9RKzNcPERmGRaS5lJBQUvNyTmnWXe66S13wslKd/7LSQMa9BCtb0M3kBlEs3rdVcIVJkgQLx4M1/H+Zvx5w6n4aL3g3TmdPN/J07giauGH37w7M3ZdfQ/s7tJ8PcmfHjxb4w3M5A+7+Ag=="
+				  }),
+				  Rows = Json.Document(Binary.Decompress(Binary.FromText(Data, BinaryEncoding.Base64), Compression.Deflate)),
+				  Source = Table.FromRows(Rows, {"profit_center", "กลุ่ม", "ศูนย์/สำนัก", "หน่วยงาน", "กลุ่ม (ย่อ)", "ศูนย์/สำนัก (ย่อ)"}),
+				  Typed = Table.TransformColumnTypes(Source, {{"profit_center", type text}, {"กลุ่ม", type text}, {"ศูนย์/สำนัก", type text}, {"หน่วยงาน", type text}, {"กลุ่ม (ย่อ)", type text}, {"ศูนย์/สำนัก (ย่อ)", type text}}, "en-US")
+				in
+				  Typed
+
+	annotation PBI_ResultType = Table
+

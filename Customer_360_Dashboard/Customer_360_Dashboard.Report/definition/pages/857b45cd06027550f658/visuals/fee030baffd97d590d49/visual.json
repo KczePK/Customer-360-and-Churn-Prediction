@@ -1,0 +1,355 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fee030baffd97d590d49",
+  "position": {
+    "x": 13.300492610837438,
+    "y": 766.10837438423641,
+    "z": 23000,
+    "height": 313.89162561576353,
+    "width": 1464.384236453202,
+    "tabOrder": 23000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "Contract No."
+                }
+              },
+              "queryRef": "gold dim_research_contract.Contract No.",
+              "nativeQueryRef": "Contract No.",
+              "displayName": "Contract No."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "project_name_th"
+                }
+              },
+              "queryRef": "gold dim_research_contract.project_name_th",
+              "nativeQueryRef": "Project",
+              "displayName": "Project"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "contract_type"
+                }
+              },
+              "queryRef": "gold dim_research_contract.contract_type",
+              "nativeQueryRef": "Type",
+              "displayName": "Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "contract_class"
+                }
+              },
+              "queryRef": "gold dim_research_contract.contract_class",
+              "nativeQueryRef": "Class",
+              "displayName": "Class"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "status_group"
+                }
+              },
+              "queryRef": "gold dim_research_contract.status_group",
+              "nativeQueryRef": "Status",
+              "displayName": "Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "sign_date"
+                }
+              },
+              "queryRef": "gold dim_research_contract.sign_date",
+              "nativeQueryRef": "Signed",
+              "displayName": "Signed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_research_contract"
+                    }
+                  },
+                  "Property": "valid_to"
+                }
+              },
+              "queryRef": "gold dim_research_contract.valid_to",
+              "nativeQueryRef": "End Date",
+              "displayName": "End Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_exec"
+                    }
+                  },
+                  "Property": "Contract Value ex VAT (any status)"
+                }
+              },
+              "queryRef": "_measure_exec.Contract Value ex VAT (any status)",
+              "nativeQueryRef": "Value (ex VAT)",
+              "displayName": "Value (ex VAT)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_exec"
+                    }
+                  },
+                  "Property": "Research Revenue Recognised Lifetime"
+                }
+              },
+              "queryRef": "_measure_exec.Research Revenue Recognised Lifetime",
+              "nativeQueryRef": "Recognised",
+              "displayName": "Recognised"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold dim_research_contract"
+                  }
+                },
+                "Property": "sign_date"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "551.1115785212941D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold dim_research_contract.project_name_th"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Research Contracts'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ไม่รวมสัญญาที่ยกเลิก'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

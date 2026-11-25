@@ -1,0 +1,68 @@
+table _helper
+	lineageTag: 517be88b-e828-458c-be85-78b9fbec21ef
+
+	measure 'As-of Fiscal Year' =
+			
+			VAR k = [As-of Month Key]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( k ),
+			        CALCULATE (
+			            MAX ( 'gold dim_date'[fiscal_year_be] ),
+			            ALL ( 'gold dim_date' ),
+			            'gold dim_date'[date_key] = k
+			        )
+			    )
+		formatString: 0
+		lineageTag: f28c9263-5884-40ff-b089-cce949b935a3
+
+	measure 'As-of Month Key' =
+			
+			VAR LastDay = MAX ( 'gold dim_date'[date_key] )
+			RETURN
+			    CALCULATE (
+			        MAX ( 'gold fact_customer_rfm_monthly'[snapshot_date_key] ),
+			        ALL (),
+			        'gold dim_date'[date_key] <= LastDay
+			    )
+		formatString: 0
+		lineageTag: 4ebb1688-409b-4951-96e5-a91cef0d6b90
+
+	measure 'As-of Label' =
+			
+			-- e.g. "ข้อมูล ณ ก.ย. 68 (ปีงบ 2568)": Thai month label + Thai fiscal year
+			VAR k = [As-of Month Key]
+			VAR mon = LOOKUPVALUE ( 'gold dim_date'[month_label_th], 'gold dim_date'[date_key], k )
+			VAR fy = LOOKUPVALUE ( 'gold dim_date'[fiscal_year_be], 'gold dim_date'[date_key], k )
+			RETURN IF ( NOT ISBLANK ( k ), "ข้อมูล ณ " & mon & " (ปีงบ " & fy & ")" )
+		lineageTag: eb92621e-1937-435d-b841-dc4a761ed589
+
+	measure 'Research As-of Month Key' =
+			-- YYYYMMDD of the research snapshot month
+			VAR LastDay = MAX ( 'gold dim_date'[date_key] )
+			RETURN
+			    CALCULATE (
+			        MAX ( 'gold fact_research_customer_monthly'[snapshot_date_key] ),
+			        ALL (),
+			        'gold dim_date'[date_key] <= LastDay
+			    )
+		formatString: 0
+		lineageTag: a3dca351-1ab9-49b7-8e4a-9e74fea191ca
+
+	column Column
+		formatString: 0
+		lineageTag: 67722db9-5f76-42ff-8cab-ae3161ee63a8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _helper = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 558a4b09164c4148a29f9e2696a669b6
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

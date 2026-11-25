@@ -1,0 +1,515 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "cfde1ec51e6417135c8f",
+  "position": {
+    "x": 6.8711656441717786,
+    "y": 695.95092024539872,
+    "z": 4000,
+    "height": 383.80368098159505,
+    "width": 1237.7914110429447,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver dim_customer"
+                    }
+                  },
+                  "Property": "primary_customer_name"
+                }
+              },
+              "queryRef": "silver dim_customer.primary_customer_name",
+              "nativeQueryRef": "Customer",
+              "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver dim_customer"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "silver dim_customer.customer_id",
+              "nativeQueryRef": " ",
+              "displayName": " "
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold dim_segment"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "gold dim_segment.segment",
+              "nativeQueryRef": "Service Segment",
+              "displayName": "Service Segment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "R Score"
+                }
+              },
+              "queryRef": "_measure_segment.R Score",
+              "nativeQueryRef": "R",
+              "displayName": "R"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "F Score"
+                }
+              },
+              "queryRef": "_measure_segment.F Score",
+              "nativeQueryRef": "F",
+              "displayName": "F"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "M Score"
+                }
+              },
+              "queryRef": "_measure_segment.M Score",
+              "nativeQueryRef": "M",
+              "displayName": "M"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Invoices (12m)"
+                }
+              },
+              "queryRef": "_measure_segment.Invoices (12m)",
+              "nativeQueryRef": "Invoices 12m",
+              "displayName": "Invoices 12m",
+              "format": "#,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure"
+                    }
+                  },
+                  "Property": "12m Revenue"
+                }
+              },
+              "queryRef": "_measure.12m Revenue",
+              "nativeQueryRef": "Revenue 12m",
+              "displayName": "Revenue 12m",
+              "format": "\"฿\"#,0;-\"฿\"#,0;\"฿\"#,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Lifetime Revenue"
+                }
+              },
+              "queryRef": "_measure_segment.Lifetime Revenue",
+              "nativeQueryRef": "Lifetime Revenue",
+              "displayName": "Lifetime Revenue",
+              "format": "\"฿\"#,0;-\"฿\"#,0;\"฿\"#,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Months Since Last Invoice"
+                }
+              },
+              "queryRef": "_measure_segment.Months Since Last Invoice",
+              "nativeQueryRef": "Months Since Last",
+              "displayName": "Months Since Last",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Usual Gap (months)"
+                }
+              },
+              "queryRef": "_measure_segment.Usual Gap (months)",
+              "nativeQueryRef": "Usual Gap (months)",
+              "displayName": "Usual Gap (months)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_segment"
+                    }
+                  },
+                  "Property": "Overdue Ratio"
+                }
+              },
+              "queryRef": "_measure_segment.Overdue Ratio",
+              "nativeQueryRef": "Overdue Ratio",
+              "displayName": "Overdue Ratio"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measure"
+                  }
+                },
+                "Property": "12m Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'maxColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure.12m Revenue"
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "silver dim_customer.customer_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "277.5781042171081D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "silver dim_customer.primary_customer_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "182.14723802571635D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold dim_segment.segment"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Service Customers'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'To drill down customer: right click > Customer 360'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9c24b03a97abe74d113f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_measure_segment"
+              }
+            },
+            "Property": "Service Customers (As-of today)"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "_measure_segment",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "Service Customers (As-of today)"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

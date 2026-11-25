@@ -1,0 +1,104 @@
+table _research_measure
+	lineageTag: dc522746-67cc-4e74-b5eb-96b339e3371e
+
+	measure 'Revenue 401' =
+			
+			CALCULATE ( SUM ( 'gold fact_contract_revenue'[revenue_thb] ), 'gold fact_contract_revenue'[is_reversed] = 0 )
+		lineageTag: 75aea28e-4ce1-4dcc-8d82-6bc6b84abc6a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Contract Revenue' =
+			-- counted revenue (fund category rule)
+			CALCULATE ( [Revenue 401], KEEPFILTERS ( 'gold fact_contract_revenue'[is_counted] = 1 ) )
+		lineageTag: d7b8cf02-387c-4aaa-84c5-fa706b8aba90
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Commercial Contract Revenue' =
+			-- realized 401, commercial fund classes only
+			CALCULATE (
+			    [Revenue 401],
+			    KEEPFILTERS ( 'gold fact_contract_revenue'[revenue_class] = "เชิงพาณิชย์" )
+			)
+		lineageTag: 932fdcf6-100b-4aee-b9c9-91055ccfc600
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Commercial Contract Revenue (client)' =
+			-- 5X / 6X / 8X: paying clients
+			CALCULATE (
+			    [Commercial Contract Revenue],
+			    KEEPFILTERS ( 'gold fact_contract_revenue'[contract_class] = "client" )
+			)
+		lineageTag: c5a7ff74-4ecc-4de5-a5fb-63a056b4a67d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Commercial Contract Revenue (PMU)' =
+			-- 7X: commercial, but payer is a funder
+			CALCULATE (
+			    [Commercial Contract Revenue],
+			    KEEPFILTERS ( 'gold fact_contract_revenue'[contract_class] = "grant" )
+			)
+		lineageTag: c5456b1f-a713-4f9b-b24a-68f2368615b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Research Customers (As-of)' =
+			-- customers at the snapshot month
+			VAR k = [Research As-of Month Key]
+			RETURN
+			    CALCULATE (
+			        DISTINCTCOUNT ( 'gold fact_research_customer_monthly'[enterprise_id] ),
+			        REMOVEFILTERS ( 'gold dim_date' ),
+			        'gold fact_research_customer_monthly'[snapshot_date_key] = k
+			    )
+		formatString: 0
+		lineageTag: 4311d737-2b03-4fe1-baaa-a954e7127701
+
+	measure 'Research R Score' = ```
+			
+			VAR k = [Research As-of Month Key]
+			RETURN CALCULATE ( SELECTEDVALUE ( 'gold fact_research_customer_monthly'[r_score] ),
+			    REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = k )
+			
+			```
+		formatString: 0
+		lineageTag: 51875e1b-59cb-45cf-a4cb-d22157593e97
+
+	measure 'Research F Score' =
+			
+			VAR k = [Research As-of Month Key]
+			RETURN CALCULATE ( SELECTEDVALUE ( 'gold fact_research_customer_monthly'[f_score] ),
+			    REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = k )
+		formatString: 0
+		lineageTag: 739fd651-fa94-462e-a4df-cf56073de191
+
+	measure 'Research M Score' = ```
+			
+			VAR k = [Research As-of Month Key]
+			RETURN CALCULATE ( SELECTEDVALUE ( 'gold fact_research_customer_monthly'[m_score] ),
+			    REMOVEFILTERS ( 'gold dim_date' ), 'gold fact_research_customer_monthly'[snapshot_date_key] = k )
+			
+			```
+		formatString: 0
+		lineageTag: 78aae1ff-ecef-4320-b3b6-7aa698e2749d
+
+	column Column
+		formatString: 0
+		lineageTag: 88488deb-2109-4b75-a3b4-5ba7b0e4aad6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _research_measure = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 70609147d51a4d7ba5b1e34a77a7b10a
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

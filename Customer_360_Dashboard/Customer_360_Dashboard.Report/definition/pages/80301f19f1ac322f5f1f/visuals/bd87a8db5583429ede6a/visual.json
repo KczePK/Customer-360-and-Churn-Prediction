@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bd87a8db5583429ede6a",
+  "position": {
+    "x": 628.33333333333337,
+    "y": 11.666666666666668,
+    "z": 10000,
+    "height": 95,
+    "width": 790,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Customer Executive Summary",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "42pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

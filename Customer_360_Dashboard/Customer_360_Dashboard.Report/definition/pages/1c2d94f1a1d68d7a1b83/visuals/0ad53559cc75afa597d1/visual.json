@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "0ad53559cc75afa597d1",
+  "position": {
+    "x": 1323.3990147783252,
+    "y": 106.4039408866995,
+    "z": 9000,
+    "height": 121.03448275862068,
+    "width": 224.77832512315271,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measure_customer_flow"
+                    }
+                  },
+                  "Property": "Active Customers (services)"
+                }
+              },
+              "queryRef": "_measure_customer_flow.Active Customers (services)",
+              "nativeQueryRef": "Active Customers (services)",
+              "displayName": "Active Customers (services)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measure_customer_flow.Active Customers (services)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

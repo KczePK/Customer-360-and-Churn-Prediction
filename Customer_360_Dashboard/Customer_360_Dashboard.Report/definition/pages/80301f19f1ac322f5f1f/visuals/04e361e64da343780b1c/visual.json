@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "04e361e64da343780b1c",
+  "position": {
+    "x": 215.00982318271122,
+    "y": 177.28880157170926,
+    "z": 12000,
+    "height": 60.353634577603152,
+    "width": 165.97249508840866,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_research_measure"
+                    }
+                  },
+                  "Property": "Contract Revenue"
+                }
+              },
+              "queryRef": "_research_measure.Contract Revenue",
+              "nativeQueryRef": "Contract Revenue",
+              "format": "\"฿\"#,0.00;-\"฿\"#,0.00;\"฿\"#,0.00"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_research_measure"
+                  }
+                },
+                "Property": "Contract Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

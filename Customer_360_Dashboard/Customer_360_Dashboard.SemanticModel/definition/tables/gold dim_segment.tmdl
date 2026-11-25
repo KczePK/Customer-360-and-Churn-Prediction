@@ -1,0 +1,27 @@
+table 'gold dim_segment'
+	lineageTag: 712821fe-4d26-4b1f-a93a-ba97a767bbb8
+
+	column segment
+		dataType: string
+		lineageTag: 10685e5e-eeda-4c2d-a1d3-754ef63552fd
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold dim_segment' = m
+		mode: import
+		source =
+				let
+				  // Sampled + perturbed: fake customers, ids, documents, fund codes, org; amounts x random factor
+				  Data = Text.Combine({
+				    "dY7LCsJADEV/JXRtobU+14qIiIqKG+kijqEGpo1mpoJ/b0V8DOL2nJt7s99HSQIL8XAjDwimdl5K0ihvNSaFCavz8ZZLgpFlqvxTtGEkSrBC9dUrnMEcz46rAqZcnOId2jo8yg6wImU5svkX6bw7JkqXuuGB7jazYh/6m/ZgTUVtUWFDemUTVvY/VZsSrY1ncggCg2ZTC/rhQ1gag46lQvst0gTGoiWGv6UpzMUFaOlPpC7K8zs="
+				  }),
+				  Rows = Json.Document(Binary.Decompress(Binary.FromText(Data, BinaryEncoding.Base64), Compression.Deflate)),
+				  Source = Table.FromRows(Rows, {"segment"}),
+				  Typed = Table.TransformColumnTypes(Source, {{"segment", type text}}, "en-US")
+				in
+				  Typed
+
+	annotation PBI_ResultType = Table
+

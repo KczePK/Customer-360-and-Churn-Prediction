@@ -1,0 +1,383 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "8398052498f58e46831b",
+  "position": {
+    "x": 230.09852216748769,
+    "y": 175.56650246305418,
+    "z": 9000,
+    "height": 444.23645320197045,
+    "width": 1460.3940886699506,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "หลักเกณฑ์ RFM – ลูกค้าสัญญาวิจัย (client)",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "การซื้อ 1 ครั้ง = การลงนามสัญญาวิจัยกลุ่ม client 1 สัญญา (ไม่ใช่งวดรายได้) ที่ไม่ถูกยกเลิก ไม่ใช่รายการโอนย้ายเงิน และระบุลูกค้าได้",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "ไม่รวม: สัญญาทุน / ผู้ให้ทุน, สัญญาภายใน, โครงการเชิงสังคม  |  มูลค่า = มูลค่าสัญญาใน CMS (รวม VAT); สัญญาที่ไม่มีใน CMS ใช้ค่าประมาณจาก GL",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "ใช้ช่วง 60 เดือน (ไม่ใช่ 12 เดือนแบบงานบริการ) เพราะลูกค้าวิจัยทำสัญญาไม่บ่อย: 71% ทำสัญญาเพียงครั้งเดียว",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "คะแนน R / F / M (5 = ดีที่สุด)",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#118dff"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R  เดือนนับจากการลงนามล่าสุด:   5 = 0–6   |   4 = 7–12   |   3 = 13–24   |   2 = 25–48   |   1 = 49+",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "F  จำนวนสัญญาใน 60 เดือน:   5 = 5+   |   4 = 3–4   |   3 = 2   |   2 = 1   |   1 = 0",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "M  มูลค่าสัญญาใน 60 เดือน:   5 = ฿2,000,000+   |   4 = ฿800,000+   |   3 = ฿350,000+   |   2 = ฿150,000+   |   1 = ต่ำกว่า ฿150,000",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "กลุ่มลูกค้า (ตรวจจากบนลงล่าง เข้าเงื่อนไขข้อแรกที่ตรง)",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#118dff"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R01 New Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  สัญญาแรกและมีเพียงสัญญาเดียว ลงนามภายใน 12 เดือน",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R02 Key Partner",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ลงนามภายใน 24 เดือน, 3+ สัญญาใน 60 เดือน และมูลค่า ฿800,000+ (M ≥ 4)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R03 Repeat Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ลงนามภายใน 24 เดือน, 2+ สัญญาใน 60 เดือน",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R04 One-Contract Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ลงนามภายใน 24 เดือน, มี 1 สัญญาใน 60 เดือน (ไม่ใช่ลูกค้าใหม่)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R05 In-Contract Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ลงนามล่าสุดเกิน 24 เดือน แต่ยังมีสัญญาดำเนินอยู่",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R06 Lapsing High-Value Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ลงนามล่าสุด 25–48 เดือน, ไม่มีสัญญาดำเนินอยู่, มูลค่า ฿800,000+ (M ≥ 4)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R07 Lapsing Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ลงนามล่าสุด 25–48 เดือน, ไม่มีสัญญาดำเนินอยู่",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R08 Lost Client",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "  –  ไม่มีการลงนาม 49 เดือนขึ้นไป และไม่มีสัญญาดำเนินอยู่",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "isHidden": true
+}

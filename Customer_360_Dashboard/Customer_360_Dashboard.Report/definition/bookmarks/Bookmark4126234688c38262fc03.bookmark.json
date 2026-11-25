@@ -1,0 +1,42 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Research – hide RFM rules",
+  "name": "Bookmark4126234688c38262fc03",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "8398052498f58e46831b",
+      "5e7bd2418d3c09bcbc09"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "39dbbdf015fbd4615599",
+    "sections": {
+      "39dbbdf015fbd4615599": {
+        "visualContainers": {
+          "8398052498f58e46831b": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "5e7bd2418d3c09bcbc09": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
